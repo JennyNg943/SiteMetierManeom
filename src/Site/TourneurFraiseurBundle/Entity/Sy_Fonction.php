@@ -37,7 +37,7 @@ class Sy_Fonction
     /**
      * @var integer
      *
-     * @ORM\Column(name="Id_SiteDistant", type="integer", nullable=false)
+     * @ORM\Column(name="Id_SiteDistant", type="integer", nullable=true)
      */
     private $idSitedistant;
 

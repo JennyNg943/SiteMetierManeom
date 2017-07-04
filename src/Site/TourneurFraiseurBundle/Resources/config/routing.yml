@@ -15,4 +15,6 @@ registration_ok:
     defaults: {_controller: SiteUserBundle:Default:inscriptionComplete}
 
 Espace:
+    path:	 /MonEspace
+    defaults: {_controller: SiteTourneurFraiseurBundle:Default:monEspace}
     

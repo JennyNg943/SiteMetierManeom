@@ -55,41 +55,6 @@ class Sy_Recruteur extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="MailComm_login", type="string", length=255, nullable=true)
-     */
-    private $mailcommLogin;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Id_CiviliteContactSourcing", type="integer", nullable=true)
-     */
-    private $idCivilitecontactsourcing;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="NomContactSourcing", type="string", length=255, nullable=true)
-     */
-    private $nomcontactsourcing;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PrenomContactSourcing", type="string", length=255, nullable=true)
-     */
-    private $prenomcontactsourcing;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="MailSourcing", type="string", length=255, nullable=true)
-     */
-    private $mailsourcing;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
      */
     private $adresse;
@@ -115,12 +80,6 @@ class Sy_Recruteur extends User
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Site", type="string", length=255, nullable=true)
-     */
-    private $site;
 
     /**
      * @var string
@@ -129,19 +88,13 @@ class Sy_Recruteur extends User
      */
     private $tel;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Blacklist", type="integer", nullable=true)
-     */
-    private $blacklist = '0';
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="DateCreation", type="date", nullable=false)
      */
-    private $datecreation = '2011-12-01';
+    private $datecreation;
 
     /**
      * @var \DateTime
@@ -150,12 +103,6 @@ class Sy_Recruteur extends User
      */
     private $datemaj;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Id_TypeRecruteur", type="integer", nullable=true)
-     */
-    private $idTyperecruteur;
 
     /**
      * @var integer
@@ -163,43 +110,6 @@ class Sy_Recruteur extends User
      * @ORM\Column(name="Newsletter", type="integer", nullable=true)
      */
     private $newsletter;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="FlagEnHaut", type="integer", nullable=true)
-     */
-    private $flagenhaut = '0';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Etat", type="integer", nullable=true)
-     */
-    private $etat = '1';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Id_RecruteurFormule", type="integer", nullable=true)
-     */
-    private $idRecruteurformule;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="ReceptionMailConfirmation", type="smallint", nullable=true)
-     */
-    private $receptionmailconfirmation = '1';
-
-
-	/**
-     * @var integer
-     *
-     * @ORM\OneToOne(targetEntity="Site\UserBundle\Entity\User", cascade={"persist", "remove"})
-	 * 
-     */
-	private $user;
 	
 	/**
      * @var integer
@@ -216,6 +126,13 @@ class Sy_Recruteur extends User
 	 * 
      */
 	private $candidat;
+	
+	/**
+     * @var integer
+     * 
+     * @ORM\OneToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Premium",cascade={"persist"})
+     */
+	private $premium;
 	
 	/**
      * Constructor

@@ -15,4 +15,19 @@ class DefaultController extends Controller
 		
         return $this->render('SiteTourneurFraiseurBundle:Default:index.html.twig',array('listecandidat'=>$listeCandidat,'listeannonce'=>$listeAnnonce));
     }
+	
+	public function monEspaceAction(){
+		$user = $this->getUser();
+		$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Recruteur');
+		$recruteur = $repository->find($user->getId());
+		if($recruteur == null){
+			$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Employeur');
+			$recruteur = $repository->find($user->getId());
+			if($recruteur == null){
+				$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Candidature');
+				$recruteur = $repository->find($user->getId());
+			}
+		}
+		return $this->render('SiteTourneurFraiseurBundle:Default:monEspace.html.twig',array('utilisateur'=>$recruteur));
+	}
 }

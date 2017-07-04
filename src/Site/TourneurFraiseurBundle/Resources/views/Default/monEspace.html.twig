@@ -1,0 +1,41 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+
+{% block body %}
+	<div id="Text">
+		<div>
+	<h1 style='color:#567d87;'>Tourneurs-Fraiseurs.com</h1>
+		<h3 style='color:#567d87;font-style: italic;'>Votre site emploi dédié aux métiers de l'usinage.</h3>
+		<br>
+		Industriels, cabinets de recrutement, agence de travail temporaire, ce site vous est accessible gratuitement pour le dépôt de vos offres d'emploi, sous une seule condition : 
+		<br/>qu'il s'agisse d'un emploi entrant dans la logique de ce site.<br/><br/>Besoin de plus de services : accès CV-thèque, mise en avant de votre offre, communication spécifique : 
+		<a href="contactRecruteur.php"  style="text-decoration: underline;font-weight: bold;">contactez-nous simplement en cliquant ici</a>
+		, et vous recevrez par retour un dossier complet.<br/>
+		Enfin, nous avons souhaité réaliser un site simple, convivial et pertinent : 
+		<a href="contactRecruteur.php" style="text-decoration: underline;font-weight: bold;">n'hésitez pas à nous faire part de vos remarques si des voies d'amélioration vous apparaissent opportunes.</a>
+		<br/>
+		<br/>
+		L'équipe Tourneurs-Fraiseurs.com		<br/>
+		<br/>
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		{% if app.user.type == "Recruteur" or app.user.type == "Admin" or app.user.type == "Employeur"%}
+			<div id="InfoPerso">
+				<a href="{{ path('fos_user_security_logout')}}" style="color:#6d6d6d;text-decoration: underline;font-size: 10px;float:right;">Déconnexion</a>
+			<h2>{{ utilisateur.Societe }}</h2>
+
+					<ul>
+						<li>Modifier vos informations (coordonnées,contact,...)</li>
+						<li>Modifier votre mot de passe</li>
+						<li>Créer une nouvelle offre d'emploi</li>
+						<li>Gérer les annonces existantes</li>
+						<li>Gérer les candidatures</li>
+						<li>Mon compte</li>
+					</ul>	
+
+			</div>
+		{% endif %}
+	{% endif %}
+		</div>
+	</div>	
+
+{% endblock %}
