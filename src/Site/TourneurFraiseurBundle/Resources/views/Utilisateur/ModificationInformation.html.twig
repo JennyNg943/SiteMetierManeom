@@ -1,0 +1,32 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+{% block body %}
+	<div id="Text">
+		<div>
+			<div id="picto-envoyer-cv">
+				{% image 'bundles/app/img/picto_cv.png' %}
+					<img src="{{ asset_url }}" />
+				{% endimage %}
+				
+			</div>
+			<h1>METTEZ A JOUR VOS INFORMATIONS</h1>
+			<div id="ModifInfo">
+				Vous êtes connecté en tant que <b>{{ utilisateur.societe }}</b>
+			</div>
+			<div id="retour-offre" style="margin:0">
+				<a href="{{ path('Espace')}}">Retour à votre profil</a>
+			</div>
+			
+			<div id="TextCorps">
+				<b>PRECAUTION</b></br>
+				Merci de prendre soin de renseigner tous les champs obligatoires identifiés par un astérisque</br></br>
+			{% if valide == 1 %}	
+				<div id="validation">
+					<h1 style="font-size: 11px;color: #6d6e71;padding-top: 0;">Votre fiche est enregistrée</h1>
+				</div>
+			{% endif %}	
+			{{ form(form) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -74,7 +74,7 @@ fos_user:
     user_class:    Site\UserBundle\Entity\User # La classe de l'entité User que nous utilisons
     use_username_form_type: false
     from_email:
-        address: nguyen943@laposte.net	
+        address: support@recrutic.com
         sender_name: Jenny
     service:
         user_manager: pugx_user_manager             

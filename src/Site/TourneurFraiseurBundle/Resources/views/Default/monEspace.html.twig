@@ -24,8 +24,8 @@
 			<h2>{{ utilisateur.Societe }}</h2>
 
 					<ul>
-						<li>Modifier vos informations (coordonnées,contact,...)</li>
-						<li>Modifier votre mot de passe</li>
+						<li><a href="{{ path('recruteur_modif')}}">Modifier vos informations (coordonnées,contact,...)</a></li>
+						<li><a href="{{ path('fos_user_change_password')}}">Modifier votre mot de passe</a></li>
 						<li>Créer une nouvelle offre d'emploi</li>
 						<li>Gérer les annonces existantes</li>
 						<li>Gérer les candidatures</li>

@@ -17,4 +17,10 @@ registration_ok:
 Espace:
     path:	 /MonEspace
     defaults: {_controller: SiteTourneurFraiseurBundle:Default:monEspace}
+
+#																	Utilisateur
+
+recruteur_modif:
+    path:	 /ModificationInformationsPersonnelles
+    defaults: {_controller: SiteTourneurFraiseurBundle:Utilisateur:change}
     
