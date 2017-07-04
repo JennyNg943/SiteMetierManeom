@@ -1,0 +1,128 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Candidatfonction
+ *
+ * @ORM\Table(name="candidatfonction", indexes={@ORM\Index(name="Id_NiveauSouhaite", columns={"Id_NiveauSouhaite"})})
+ * @ORM\Entity
+ */
+class Candidatfonction
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_CandidatFonction", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCandidatfonction;
+
+    /**
+     * @var integer
+     *
+     * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Fonction")
+     */
+    private $idFonction;
+
+    /**
+     * @var integer
+     *
+     * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Candidat")
+     */
+    private $idCandidat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_NiveauSouhaite", type="integer", nullable=false)
+     */
+    private $idNiveausouhaite = '1';
+
+
+
+    /**
+     * Get idCandidatfonction
+     *
+     * @return integer
+     */
+    public function getIdCandidatfonction()
+    {
+        return $this->idCandidatfonction;
+    }
+
+    /**
+     * Set idFonction
+     *
+     * @param integer $idFonction
+     *
+     * @return Candidatfonction
+     */
+    public function setIdFonction($idFonction)
+    {
+        $this->idFonction = $idFonction;
+
+        return $this;
+    }
+
+    /**
+     * Get idFonction
+     *
+     * @return integer
+     */
+    public function getIdFonction()
+    {
+        return $this->idFonction;
+    }
+
+    /**
+     * Set idCandidat
+     *
+     * @param integer $idCandidat
+     *
+     * @return Candidatfonction
+     */
+    public function setIdCandidat($idCandidat)
+    {
+        $this->idCandidat = $idCandidat;
+
+        return $this;
+    }
+
+    /**
+     * Get idCandidat
+     *
+     * @return integer
+     */
+    public function getIdCandidat()
+    {
+        return $this->idCandidat;
+    }
+
+    /**
+     * Set idNiveausouhaite
+     *
+     * @param integer $idNiveausouhaite
+     *
+     * @return Candidatfonction
+     */
+    public function setIdNiveausouhaite($idNiveausouhaite)
+    {
+        $this->idNiveausouhaite = $idNiveausouhaite;
+
+        return $this;
+    }
+
+    /**
+     * Get idNiveausouhaite
+     *
+     * @return integer
+     */
+    public function getIdNiveausouhaite()
+    {
+        return $this->idNiveausouhaite;
+    }
+}

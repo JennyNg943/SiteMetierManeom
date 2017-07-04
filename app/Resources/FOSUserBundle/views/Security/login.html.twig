@@ -1,0 +1,44 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+	<h1 style='color:#567d87;'>Tourneurs-Fraiseurs.com</h1>
+		<h3 style='color:#567d87;font-style: italic;'>Votre site emploi dédié aux métiers de l'usinage.</h3>
+		<br>
+		Industriels, cabinets de recrutement, agence de travail temporaire, ce site vous est accessible gratuitement pour le dépôt de vos offres d'emploi, sous une seule condition : 
+		<br/>qu'il s'agisse d'un emploi entrant dans la logique de ce site.<br/><br/>Besoin de plus de services : accès CV-thèque, mise en avant de votre offre, communication spécifique : 
+		<a href="contactRecruteur.php"  style="text-decoration: underline;font-weight: bold;">contactez-nous simplement en cliquant ici</a>
+		, et vous recevrez par retour un dossier complet.<br/>
+		Enfin, nous avons souhaité réaliser un site simple, convivial et pertinent : 
+		<a href="contactRecruteur.php" style="text-decoration: underline;font-weight: bold;">n'hésitez pas à nous faire part de vos remarques si des voies d'amélioration vous apparaissent opportunes.</a>
+		<br/>
+		<br/>
+		L'équipe Tourneurs-Fraiseurs.com		<br/>
+		<br/>
+			
+	<table id="InscriptionT">
+		<tr>
+			<th><h2>Inscription</h2></th>
+			<th><h2>Connexion</h2></th>
+		</tr>
+		<tr>
+			<td>
+				<div >
+				<a href="{{ path('user_one_registration') }}" id = "JeSuisRecruteurInf">
+				Je suis candidat</a> </div>
+				<div>
+					<a href="{{path('user_two_registration')}}" id = "JeSuisCandidatInf">
+						Je suis recruteur</a>
+				</div>
+				<div >
+					<a href="{{ path('user_three_registration') }}" id = "JeSuisEmployeurInf">
+						Je suis employeur</a> 
+				</div>
+			</td>
+			<td>
+					{{ include('@FOSUser/Security/login_content.html.twig') }}
+					<a href="{{path('fos_user_resetting_request')}}">Mot de passe oublié ?</a>
+			</td>
+		</tr>
+	</table>
+
+{% endblock fos_user_content %}

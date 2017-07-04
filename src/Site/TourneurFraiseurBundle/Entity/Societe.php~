@@ -1,0 +1,228 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Societe
+ *
+ * @ORM\Table(name="societe")
+ * @ORM\Entity
+ */
+class Societe
+{
+   /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomSociete", type="string", length=255, nullable=false)
+     */
+    private $nomSociete;
+	
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="typeSociete", type="integer", length=255, nullable=false)
+     */
+    private $typeSociete;
+	
+	
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="civilite", type="string", length=255, nullable=false)
+     */
+    private $civilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomSourcing", type="string", nullable=false)
+     */
+    private $nomSourcing;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenomSourcing", type="string", nullable=false)
+     */
+    private $prenomSourcing;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mailSourcing", type="string", length=255, nullable=false)
+     */
+    private $mailSourcing;
+	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     */
+    private $description;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="site", type="string", length=255, nullable=true)
+     */
+	private $site;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="fax", type="integer", length=255, nullable=true)
+     */
+	private $fax;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="blacklist", type="integer", length=255, nullable=true)
+     */
+	private $blacklist='0';
+	
+	
+
+
+    /**
+     * Get idSiteemploi
+     *
+     * @return integer
+     */
+    public function getIdSiteemploi()
+    {
+        return $this->idSiteemploi;
+    }
+
+    /**
+     * Set intitulesiteemploi
+     *
+     * @param string $intitulesiteemploi
+     *
+     * @return Siteemploi
+     */
+    public function setIntitulesiteemploi($intitulesiteemploi)
+    {
+        $this->intitulesiteemploi = $intitulesiteemploi;
+
+        return $this;
+    }
+
+    /**
+     * Get intitulesiteemploi
+     *
+     * @return string
+     */
+    public function getIntitulesiteemploi()
+    {
+        return $this->intitulesiteemploi;
+    }
+
+    /**
+     * Set urlsiteemploi
+     *
+     * @param string $urlsiteemploi
+     *
+     * @return Siteemploi
+     */
+    public function setUrlsiteemploi($urlsiteemploi)
+    {
+        $this->urlsiteemploi = $urlsiteemploi;
+
+        return $this;
+    }
+
+    /**
+     * Get urlsiteemploi
+     *
+     * @return string
+     */
+    public function getUrlsiteemploi()
+    {
+        return $this->urlsiteemploi;
+    }
+
+    /**
+     * Set flagmetier
+     *
+     * @param boolean $flagmetier
+     *
+     * @return Siteemploi
+     */
+    public function setFlagmetier($flagmetier)
+    {
+        $this->flagmetier = $flagmetier;
+
+        return $this;
+    }
+
+    /**
+     * Get flagmetier
+     *
+     * @return boolean
+     */
+    public function getFlagmetier()
+    {
+        return $this->flagmetier;
+    }
+
+    /**
+     * Set initiales
+     *
+     * @param string $initiales
+     *
+     * @return Siteemploi
+     */
+    public function setInitiales($initiales)
+    {
+        $this->initiales = $initiales;
+
+        return $this;
+    }
+
+    /**
+     * Get initiales
+     *
+     * @return string
+     */
+    public function getInitiales()
+    {
+        return $this->initiales;
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param string $domaine
+     *
+     * @return Siteemploi
+     */
+    public function setDomaine($domaine)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return string
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
+    }
+}

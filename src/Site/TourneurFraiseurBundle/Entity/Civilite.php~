@@ -1,0 +1,33 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Civilite
+ *
+ * @ORM\Table(name="civilite")
+ * @ORM\Entity
+ */
+class Civilite
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Civilite", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCivilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IntituleCivilite", type="string", length=255, nullable=false)
+     */
+    private $intitulecivilite;
+
+
+}
+

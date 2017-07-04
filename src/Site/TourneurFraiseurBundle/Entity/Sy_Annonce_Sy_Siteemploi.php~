@@ -1,0 +1,40 @@
+<?php
+
+namespace Site\TourneurFraiseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sy_Annonce_Sy_Siteemploi
+ *
+ * 
+ * @ORM\Entity
+ */
+class Sy_Annonce_Sy_Siteemploi
+{
+    /**
+     * @ORM\Id
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Annonce",cascade={"persist"})
+     */
+    private $idAnnonce;
+
+    /**
+     * @ORM\Id
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi",cascade={"persist"})
+     */
+    private $idSiteemploi;
+
+	/**
+     * @ORM\Id
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Fonction",cascade={"persist"})
+     */
+	private $idFonction;
+
+
+   
+
+    
+}

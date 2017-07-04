@@ -1,0 +1,33 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Typerecruteur
+ *
+ * @ORM\Table(name="typerecruteur")
+ * @ORM\Entity
+ */
+class Typerecruteur
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_TypeRecruteur", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idTyperecruteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IntituleTypeRecruteur", type="string", length=255, nullable=false)
+     */
+    private $intituletyperecruteur;
+
+
+}
+

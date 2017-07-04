@@ -1,0 +1,542 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Utilisateur
+ * 
+ * @ORM\Table(name="utilisateur")
+ * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\UtilisateurRepository")
+ */
+class Utilisateur
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+	/**
+	 *
+	 * @var int 
+	 */
+	private $civilite;
+	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Mail", type="string", length=255, unique=true)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MotDePasse", type="string", length=255)
+     */
+    private $motDePasse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Prenom", type="string", length=255,nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nom", type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ville", type="string", length=255)
+     */
+    private $ville;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="CP", type="integer", length=5)
+     */
+    private $cP;
+	
+	/**
+	 * @var int
+	 * 
+	 * @ORM\Column(name="telephone", type="integer", length=10)
+	*/
+	private $telephone;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateCreation", type="date", nullable=false)
+     */
+	private $DateCreation;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateMaj", type="date", nullable=false)
+     */
+	private $DateMaj;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateNewsletter", type="date", nullable=false)
+     */
+	private $DateNewsletter;
+	
+	/**
+	 * @var int
+	 * 
+	 * @ORM\Column(name="statut", type="integer", length=10)
+	*/
+	private $statut='1';
+	
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="Newsletter", type="integer", nullable=true)
+     */
+	private $newsletter;
+	
+		
+	/**
+     * @ORM\Column(type="string",nullable = true)
+     *
+     * @Assert\NotBlank(message="Veuillez entrer votre CV :")
+     * @Assert\File(mimeTypes={ "application/pdf" })
+     */
+    private $CV;
+	
+	/**
+     * @ORM\Column(type="string",nullable = true)
+     *
+     * @Assert\NotBlank(message="Une photo?")
+     * @Assert\File(mimeTypes={ "application/png" })
+     */
+	private $image;
+	
+	/**
+	 * @ORM\ManyToMany(targetEntity="OC\PlatformBundle\Entity\Siteemploi",cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+	*/
+	private $choixMetier;
+	
+	/**
+     * @var integer
+     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\UtilisateurRole")
+     */
+	private $role;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="societe", type="integer", nullable=true)
+     */
+	private $societe;
+
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="text", nullable=false)
+     */
+    private $salt = "v1-s@lt";
+	
+	
+	public function __construct() {
+		
+	
+	}
+	
+	
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Utilisateur
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set motDePasse
+     *
+     * @param string $motDePasse
+     *
+     * @return Utilisateur
+     */
+    public function setMotDePasse($motDePasse)
+    {
+        $this->motDePasse = $motDePasse;
+        return $this;
+    }
+
+    /**
+     * Get motDePasse
+     *
+     * @return string
+     */
+    public function getMotDePasse()
+    {
+        return $this->motDePasse;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Utilisateur
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Utilisateur
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Utilisateur
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Utilisateur
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param string $pays
+     *
+     * @return Utilisateur
+     */
+    public function setPays($pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return string
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set cP
+     *
+     * @param integer $cP
+     *
+     * @return Utilisateur
+     */
+    public function setCP($cP)
+    {
+        $this->cP = $cP;
+
+        return $this;
+    }
+
+    /**
+     * Get cP
+     *
+     * @return int
+     */
+    public function getCP()
+    {
+        return $this->cP;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param integer $telephone
+     *
+     * @return Utilisateur
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return integer
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+
+    /**
+     * Set choixMetier
+     *
+     * @param integer $choixMetier
+     *
+     * @return Utilisateur
+     */
+    public function setChoixMetier($choixMetier)
+    {
+        $this->choixMetier = $choixMetier;
+
+        return $this;
+    }
+
+    /**
+     * Get choixMetier
+     *
+     * @return integer
+     */
+    public function getChoixMetier()
+    {
+        return $this->choixMetier;
+    }
+
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return Utilisateur
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * Add choixMetier
+     *
+     * @param \OC\PlatformBundle\Entity\Site $choixMetier
+     *
+     * @return Utilisateur
+     */
+    public function addChoixMetier(\OC\PlatformBundle\Entity\Site $choixMetier)
+    {
+        $this->choixMetier[] = $choixMetier;
+
+        return $this;
+    }
+
+    /**
+     * Remove choixMetier
+     *
+     * @param \OC\PlatformBundle\Entity\Site $choixMetier
+     */
+    public function removeChoixMetier(\OC\PlatformBundle\Entity\Site $choixMetier)
+    {
+        $this->choixMetier->removeElement($choixMetier);
+    }
+
+    /**
+     * Set role
+     *
+     * @param integer $role
+     *
+     * @return Utilisateur
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return integer
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set nomSociete
+     *
+     * @param string $nomSociete
+     *
+     * @return Utilisateur
+     */
+    public function setNomSociete($nomSociete)
+    {
+        $this->nomSociete = $nomSociete;
+
+        return $this;
+    }
+
+    /**
+     * Get nomSociete
+     *
+     * @return string
+     */
+    public function getNomSociete()
+    {
+        return $this->nomSociete;
+    }
+
+    /**
+     * Set cV
+     *
+     * @param string $cV
+     *
+     * @return Utilisateur
+     */
+    public function setCV($cV)
+    {
+        $this->CV = $cV;
+
+        return $this;
+    }
+
+    /**
+     * Get cV
+     *
+     * @return string
+     */
+    public function getCV()
+    {
+        return $this->CV;
+    }
+}

@@ -1,0 +1,86 @@
+<?php
+
+namespace Site\TourneurFraiseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Horaire
+ *
+ * @ORM\Table(name="horaire")
+ * @ORM\Entity
+ */
+class Horaire
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IntituleHoraire", type="string", length=255, nullable=true)
+     */
+    private $intitulehoraire;
+
+
+
+    /**
+     * Get idHoraire
+     *
+     * @return integer
+     */
+    public function getIdHoraire()
+    {
+        return $this->idHoraire;
+    }
+
+    /**
+     * Set intitulehoraire
+     *
+     * @param string $intitulehoraire
+     *
+     * @return Horaire
+     */
+    public function setIntitulehoraire($intitulehoraire)
+    {
+        $this->intitulehoraire = $intitulehoraire;
+
+        return $this;
+    }
+
+    /**
+     * Get intitulehoraire
+     *
+     * @return string
+     */
+    public function getIntitulehoraire()
+    {
+        return $this->intitulehoraire;
+    }
+	
+	/**
+	 * String representation of this object
+	 * @return string
+	*/
+	public function __toString() {
+		try {
+			return (string) $this->intitulehoraire;
+		} catch (Exception $exception) {
+			return '';
+		}
+	}
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

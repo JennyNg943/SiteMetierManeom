@@ -1,0 +1,348 @@
+<?php
+
+namespace Site\TourneurFraiseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+ * Annonce
+ *
+ * 
+ * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\AnnonceRepository")
+ */
+class Annonce
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TitreAnnonce", type="string", length=255, nullable=false)
+     */
+    private $titreannonce;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DescriptifAnnonce", type="text", length=65535, nullable=false)
+     */
+    private $descriptifannonce;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ProfilRecherche", type="text", length=65535, nullable=false)
+     */
+    private $profilrecherche;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateDebut", type="date", nullable=true)
+     */
+    private $datedebut;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Remuneration", type="string", length=255, nullable=false)
+     */
+    private $remuneration;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Typecontrat")
+     */
+    private $idTypecontrat;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DureeContrat", type="text", length=65535, nullable=true)
+     */
+    private $dureecontrat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Niveausouhaite")
+	 * @ORM\JoinColumn(nullable=false)
+     */
+    private $idNiveauSouhaite;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Departement")
+	 * @ORM\JoinColumn(nullable=false)
+     */
+    private $idDepartement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Recruteur")
+	 * @ORM\JoinColumn(nullable=false)
+     */
+    private $idRecruteur;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateCreation", type="datetime", nullable=false)
+     */
+    private $datecreation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DatePublication", type="date", nullable=true)
+     */
+    private $datepublication;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateFinPublication", type="date", nullable=true)
+     */
+    private $datefinpublication;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Suspension", type="integer", nullable=false)
+     */
+    private $suspension;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateSuspension", type="date", nullable=true)
+     */
+    private $dateSuspension;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateMAJ", type="date", nullable=true)
+     */
+    private $dateMAJ;
+	
+	
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="GrandeVilleProche", type="string", length=255, nullable=false)
+     */
+    private $grandevilleproche;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Avantage", type="text", length=65535, nullable=true)
+     */
+    private $avantage;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Horaire")
+     */
+    private $idHoraire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NbHeure", type="string", length=255, nullable=false)
+     */
+    private $nbheure;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NbVues", type="integer", nullable=false)
+     */
+    private $nbvues = '0';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DatePublicationRss", type="datetime", nullable=true)
+     */
+    private $datepublicationrss;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ReferenceRecruteur", type="string", length=255, nullable=true)
+     */
+    private $referencerecruteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Reference", type="string", length=255, nullable=true)
+     */
+    private $reference;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DescriptionEmployeur", type="text", length=65535, nullable=true)
+     */
+    private $descriptionemployeur;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Formule", type="integer", nullable=true)
+     */
+    private $idFormule = '1';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="FlagIndeed", type="integer", nullable=true)
+     */
+    private $flagindeed = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DescriptionRecruteurProfil", type="text", length=65535, nullable=true)
+     */
+    private $descriptionrecruteurprofil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AdresseReponse", type="string", length=255, nullable=true)
+     */
+    private $adressereponse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DeptLimitrophe", type="string", length=255, nullable=true)
+     */
+    private $deptlimitrophe;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="FlagPmeJob", type="boolean", nullable=true)
+     */
+    private $flagpmejob = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TexteIndeed", type="text", length=65535, nullable=true)
+     */
+    private $texteindeed;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ReferencePoleEmploi", type="string", length=255, nullable=true)
+     */
+    private $referencepoleemploi;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_RejetAnnonce", type="integer", nullable=true)
+     */
+    private $idRejetannonce = '0';
+	
+	/**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi",mappedBy="idAnnonce",cascade={"persist"})
+     */
+	private $site;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi",mappedBy="idAnnonce",cascade={"persist"})
+     */
+	private $fonction;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="Site\UserBundle\Entity\Sy_Candidature",mappedBy="annonce",cascade={"persist"})
+     */
+	private $candidature;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="Premium", type="integer", nullable=true)
+     */
+	private $premium;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\Column(name="New", type="integer", nullable=true)
+     */
+	private $New = false;
+	
+	
+    
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->site = new \Doctrine\Common\Collections\ArrayCollection();
+		$this->datecreation = new \DateTime('now');
+		$this->suspension = -1;
+    }
+
+    
+
+
+    /**
+     * Add site
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $site
+     *
+     * @return Annonce
+     */
+    public function addSite(\Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $site)
+    {
+        $this->site[] = $site;
+		$site->setIdAnnonce($this);
+        return $this;
+    }
+
+    
+	
+	/**
+	 * String representation of this object
+	 * @return string
+	*/
+	public function __toString() {
+		try {
+			return (string) $this->titreannonce;
+		} catch (Exception $exception) {
+			return '';
+		}
+	}
+
+    
+}

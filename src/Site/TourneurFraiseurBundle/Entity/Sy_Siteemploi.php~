@@ -1,0 +1,96 @@
+<?php
+
+namespace Site\TourneurFraiseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sy_Siteemploi
+ *
+ * @ORM\Table(name="Sy_Siteemploi")
+ * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\SiteRepository")
+ */
+class Sy_Siteemploi
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IntituleSiteEmploi", type="string", length=255, nullable=false)
+     */
+    private $intitulesiteemploi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UrlSiteEmploi", type="string", length=255, nullable=false)
+     */
+    private $urlsiteemploi;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="FlagMetier", type="boolean", nullable=false)
+     */
+    private $flagmetier;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Initiales", type="string", length=10, nullable=false)
+     */
+    private $initiales;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Domaine", type="string", length=255, nullable=false)
+     */
+    private $domaine;
+
+	/**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Fonction",mappedBy="idSiteEmploi")
+	 * @ORM\JoinColumn(nullable=true)
+	 * 
+     */
+	private $fonction;
+
+	/**
+     * @var integer
+     *
+     * @ORM\OneToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi",mappedBy="idAnnonce",cascade={"persist"})
+	 *
+     */
+	private $annonce;
+	
+    
+	
+	public function __toString() {
+		try {
+			return (string) $this->id;
+		} catch (Exception $exception) {
+			return '';
+		}
+	}
+
+    
+	
+ 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fonction = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
+}

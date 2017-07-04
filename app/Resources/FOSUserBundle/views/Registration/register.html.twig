@@ -1,0 +1,14 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+		<div id="picto-envoyer-cv">
+			<img src="../../bundles/app/img/picto_cv.png" alt="Déposer votre candidature"/>
+		</div>
+
+							<h1>INSCRIVEZ-VOUS POUR PROFITER DE NOS SERVICES</h1>
+							<p>L'inscription sur notre site est gratuite et sans aucun engagement. Elle est cependant indispensable pour acc&eacute;der &agrave; de nombreuses fonctions dont la d&eacute;pose d'annonces. </br>
+								<a href="contactRecruteur.php"  style="text-decoration: underline; ">Vous souhaitez simplement nous contacter cliquez-ici</a> ou T&eacute;l&eacute;phonez au  <span style="font-weight: bold;">04 69 85 66 54</span>
+							</p>
+				{% include '@SiteUserBundle/Resources/views/FOSUser/register_content.html.twig' %}
+
+{% endblock fos_user_content %}

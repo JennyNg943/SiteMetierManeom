@@ -1,0 +1,127 @@
+{# src/Site/TourneurFraiseurBundle/Ressources/views/layout.html.twig #}
+
+<!DOCTRINE HTML>
+
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>{% block title %}Tourneur Fraiseur{% endblock %}</title>
+		
+		{% block stylesheets %}
+			{% stylesheets 'bundles/app/css/*' filter='cssrewrite'%}
+				<link rel="stylesheet" href="{{ asset_url }}" />
+			{% endstylesheets %}
+		{% endblock %}
+  </head>
+
+			
+<body>
+		 {% block header %}
+		<div id="conteneur">
+			<div id="bandeau_haut">
+
+				<div id="nom-site">
+					{% image 'bundles/app/img/Bandeau.png' %}
+							<a href="/"><img src="{{ asset_url }}" alt="Le site emploi totalement dédié aux métiers de l'usinage"/></a>
+					{% endimage %}
+				</div>
+				{{ include("SiteTourneurFraiseurBundle:Default:MenuPrincipal.html.twig") }}
+
+			</div>
+		{% endblock %}
+		
+		<div id="haut" style='height: 730px;'>	
+		
+			
+			<div id="menu_gauche-conteneur">
+					<div id="titre" style="height:45px;margin-top: 20px;">
+						{% image 'bundles/app/img/LogoMenu.png' %}
+							<a href="/" style="margin:-18px;padding:0;float:left;">
+								<img src="{{ asset_url }}" alt=""/></a>
+						{% endimage %}
+					</div>			
+				<div id="menu-gauche">
+					<ul id="menu-accordeon">
+						<li class="MenuGeneral"><a  class='menu_actif' href="/"><span>Retour</span><br/>ACCUEIL</a></li>
+						<li class="MenuGeneral"><a href="index_recruteur.php" style="color:red;"><span>DEPOSER</span> <br/>UNE ANNONCE</a>
+						<ul>
+							<li class="MenuGeneral"><a href="liste-salon.php"><span>Liste des</span><br/>SALON</a></li>
+						</ul></li>
+						<li class="MenuGeneral"><a href="offres-emploi.php" style="color:red;"><span>VOIR</span><br/>NOS OFFRES</a></li>
+						<li class="MenuGeneral"><a href="liste-salon.php"><span>Espace</span><br/>INFOS UTILES</a>
+						<ul>
+							<li class="MenuGeneral"><a href="liste-salon.php"><span>Liste des</span><br/>SALON</a></li>
+							<li class="MenuGeneral"><a href="liste-salon.php"><span>Toute l'</span><br/>ACTUALITE</a></li>
+							<li class="MenuGeneral"><a href="liste-salon.php"><span>Nos</span><br/>PARTENAIRES</a></li>
+							<li class="MenuGeneral"><a href="liste-salon.php"><span>Liste des</span><br/>ECOLES ET CFA</a></li>
+							<li class="MenuGeneral"><a href="liste-salon.php"><span>Nous</span><br/>CONTACTER</a></li>
+						</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		
+			<div id="EspacePubHorizontal" style=" " >
+				<div style="float:left;margin-top:-56px;">
+					<!--<script type="text/javascript" src="js/advertisement.js"></script>-->
+				
+			</div></div>
+			
+		
+			{% block body %}
+		{% endblock %}
+		</div> <!--- FERMETURE div haut -->		
+		
+	<div id="footer">
+	<div id="footer-contenu">
+		<div id="footer-top">
+			<div id="copyright" style="height: auto;width: auto;">
+				<p>
+					Tourneurs-Fraiseurs.com 2016.
+					Tous droits réservés
+					Powered by <a href="http://www.recrutic.com" title="Recrutic, éditeur de sites emploi spécialisés." target="_blank">Recrutic</a>
+				</p>
+			</div>
+			<div id="menu-footer">
+
+				<ul>
+					<li><a href="/index.php">ACCUEIL</a></li>
+					<li><a href="/index_recruteur.php">RECRUTER</a></li>
+					<li><a href="/offres-emploi.php">LES OFFRES D'EMPLOI</a></li>
+					<li class="last-li"><a href="MentionLegale.php" class="ceebox html" rel='iframe width:775px height:500px' >MENTIONS LEGALES</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="footer-bottom">
+			<fieldset>
+				<legend align='center'><a href="http://www.recrutic.com" title="Recrutic." target="_blank">Recrutic : Editeur de sites emploi spécialisés</a></legend>
+				<span><a href="http://www.agro-recrutement.com" title="Agro-Recrutement.com, Site emploi de l'agroalimentaire" target="_blank">Agro-Recrutement.com</a></span>
+				<span><a href="http://www.appros-achats.com" title="Appros-Achats.com, Site emploi des supply chain" target="_blank">Appros-Achats.com</a></span>
+				<span><a href="http://www.be-methodes.com" title="BE-Methodes.com, le site emploi des &eacute;tudes, de la conception, et de l'industrialisation" target="_blank">BE-Methodes.com</a></span>
+				<span><a href="http://www.btp-vrd.com" title="BTP-VRD.com, le site emploi du b&acirc;timent et des travaux publics" target="_blank">BTP-VRD.com</a></span>
+				<span><a href="http://www.chaudronniers-toliers.com" title="Chaudronniers-Toliers.com, Tout le travail des m&eacute;taux en feuilles" target="_blank">Chaudronniers-Toliers.com</a></span>
+				<span><a href="http://www.chimie-emploi.com" title="Chimie-Emploi.com, le site emploi de la chimie" target="_blank">Chimie-Emploi.com</a></span>
+				<span><a href="http://www.commercial-b2b.com" title="Commercial-B2B.com, le site emploi des commerciaux" target="_blank">Commercial-B2B.com</a></span>
+				<span><a href="http://www.energie-emploi.com" title="Energie-Emploi.com, le site emploi de l'&eacute;nergie" target="_blank">Energie-Emploi.com</a></span>
+				<span><a href="http://www.forgerons-fondeurs.com" title="Forgerons-Fondeurs.com, le site emploi de la forge et de la fonderie" target="_blank">Forgerons-Fondeurs.com</a></span>
+				<span><a href="http://www.maintenance-emploi.com" title="Maintenance-Emploi.com, le site emploi de la maintenance" target="_blank">Maintenance-Emploi.com</a></span>
+				<span><a href="http://www.managers-emploi.com" title="Managers-Emploi, le site emploi des managers" target="_blank">Managers-Emploi.com</a></span>
+				<span><a href="http://www.ntic-emploi.com" title="NTIC-Emploi.com, le site emploi de l'informatique et des nouvelles technologies" target="_blank">NTIC-Emploi.com</a></span>
+				<span><a href="http://www.plastic-emploi.com" title="Plastic-Emploi.com, le site emploi de la plasturgie" target="_blank">Plastic-Emploi.com</a></span>
+				<span><a href="http://www.qhse-emploi.com" title="QHSE-Emploi.com, le site emploi des QHSE" target="_blank">QHSE-Emploi.com</a></span>
+				<span><a href="http://www.tourneurs-fraiseurs.com" title="Tourneurs-Fraiseurs.com, le site emploi de l'usinage" target="_blank">Tourneurs-Fraiseurs.com</a></span>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+		{% block javascripts %}
+		{% endblock %}
+
+  </body>
+
+</html>

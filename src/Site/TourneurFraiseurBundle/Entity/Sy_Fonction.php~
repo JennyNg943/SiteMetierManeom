@@ -1,0 +1,56 @@
+<?php
+
+namespace Site\TourneurFraiseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sy_Fonction
+ *
+ * @ORM\Table(name="Sy_fonction")
+ * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\AnnonceRepository")
+ */
+class Sy_Fonction
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IntituleFonction", type="string", length=255, nullable=false)
+     */
+    private $intitulefonction;
+
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi")
+	 * @ORM\JoinColumn(nullable=false)
+     */
+    private $idSiteEmploi;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_SiteDistant", type="integer", nullable=false)
+     */
+    private $idSitedistant;
+
+
+
+    
+	
+	public function __toString() {
+		try {
+			return (string) $this->intitulefonction;
+		} catch (Exception $exception) {
+			return '';
+		}
+	}
+}
+

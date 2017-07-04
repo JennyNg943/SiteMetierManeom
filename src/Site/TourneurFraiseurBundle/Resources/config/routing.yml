@@ -1,0 +1,18 @@
+site_tourneur_fraiseur_homepage:
+    path:     /
+    defaults: { _controller: SiteTourneurFraiseurBundle:Default:index }
+    
+espaceCandidat:
+    path:	 /EspaceCandidat
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:EspaceCandidat}
+
+inscription:
+    path:	 /Inscription
+    defaults: {_controller: SiteUserBundle:Default:index}
+    
+registration_ok:
+    path:	 /InscriptionConfirmé
+    defaults: {_controller: SiteUserBundle:Default:inscriptionComplete}
+
+Espace:
+    

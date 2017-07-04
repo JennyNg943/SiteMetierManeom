@@ -1,0 +1,109 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+
+{% block body %}			
+
+		
+<div id="index-haut-droit" style="text-align: justify;font-weight: bold;margin-right:20px;width:728px;">
+	
+	<h1>Tourneurs-Fraiseurs.com</h1>
+	<h3 style="color:white;font-style: italic;">Une autre approche du recrutement dans l'usinage </h3>
+	
+	Quelle que soit la spécialité recherchée ou proposée, Tourneurs-Fraiseurs.com met en relation des entreprises et des professionnels de l'usinage par enlèvement de copeaux ou abrasion.<br>
+	Tournage, fraisage, décolletage, brochage, forage, rectification, représentent ainsi le travail quotidien des milliers de profils présents dans notre CV-Théque ou de candidats potentiels visitant régulièrement notre site.<br><br> 
+	Au-delà des spécialités techniques, de nombreuses fonctions sont couvertes : certaines très  'terrain', telles que régleurs, opérateurs, conducteurs de machines automatisées ou programmeurs sur armoire CN, et d'autres plus généralistes ou transverses; telles que méthodes, gammes, programmation (CFAO) ou encadrement.<br><br>
+	Depuis septembre 2013, de nouvelles fonctions ont été ajoutées. Elles visent à pérenniser la relation entre les recruteurs et les candidats dès leur formation professionnelle. Vous trouverez ainsi un onglet formation très fortement enrichi d'offres de stages et autres opportunités.<br><br>
+	Nous avons également développé de nouvelles formules pour assister les entreprises dans leurs recherches de collaborateurs, et avons étendu notre offre aux agences d'intérim et cabinets RH qui peuvent ainsi s'appuyer sur nous pour performer leurs relations avec leurs clients habituels.<br><br>
+	N'hésitez pas à nous contacter : nous serons ravis d'échanger avec vous pour vous apporter le meilleur service.<br><br> 
+	L'équipe de Tourneurs-Fraiseurs.com.	<br/>
+	
+	<div id="index1">
+		<h2 style="padding-top: 5px;margin-bottom: 5px;padding-bottom: 0;padding-left: 15px;margin-left: 0;">ILS RECRUTENT :</h2>
+			<div style='width:225px;height:65px;float:left;border-right:1px dotted grey;margin-right: 20px;;padding-left:2px;margin-left:5px;'>
+				{% image 'bundles/app/DocumentRecruteur/logo_maneom.jpg.png' %}
+					<img src="{{ asset_url }}" style='float:right;margin-right:3px;' alt=''/>
+				{% endimage %}
+					<div style='font-weight:bold;'>Maneom</div>
+					<p style='margin-top:0px;margin-bottom:10px;color:#6d6e71;'>Villeurbanne</p>
+					<a href='offres-emploi.php?Id_Recruteur=' style='width:130px;'>Voir ses offres d'emploi</a>
+			</div>
+	</div>
+
+</div>
+
+<div id="corps"  style="font-size:11px;">
+	<div id="corps-droit" >
+			<div id="contenu-corps-droit">
+				<h2 style="float:right;margin-right: 85px;">DERNIERES OFFRES </h2>
+				
+				
+				<h2>DERNIERS CANDIDATS INSCRITS</h2>
+				
+				<div id="corps-droit-bloc1" style="width:240px;margin-left: -10px;">
+					{% for candidat in listecandidat %}
+						<ul>
+							<li>{{ candidat.nomCandidat }} {{ candidat.prenomCandidat }}</li>
+							<li>{{ candidat.datecreation|date('d/m/Y') }}</li>
+						</ul>
+					{% endfor %}			
+				</div>
+				<div id="corps-droit-bloc2" style="width:185px;">
+						{% for annonce in listeannonce %}
+							<ul>
+								<li>{{ annonce.titreAnnonce }} - {{ annonce.datecreation|date('d/m/Y') }}</li>
+								{% for fonction in annonce.site %}
+									<li>{{ fonction.idFonction }}</li>
+								{% endfor %}
+									<li>{{ annonce.idDepartement }}</li>
+							
+							</ul>
+						{% endfor %}
+						<br/>
+						<div style='width:100%;text-align:center;'>
+							<a href="{{path('espaceCandidat')}}">Voir la liste complète</a>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div id="corps-droit2" >
+			<div id="contenu-corps-droit">
+				<h2 style="float:right;margin-right:114px;">SALONS A VENIR</h2>
+				<h2>NOS PARTENAIRES</h2>
+
+				<div id="corps-droit-bloc1">
+					<h3 style='margin-bottom:0;'>Usinage-online.com</h3>
+									<p>Site d'usinage et seulement de l'usinage. 1 er site d'offres de march</p>
+									<a href='http://www.usinage-online.com/fr/' title='Usinages-online.com, Le site de l'usinage.' target='_blank'>
+										www.usinage-online.com/fr/
+									</a>
+									<br/>
+									<br/>
+								<h3 style='margin-bottom:0;'>Usinages.com</h3>
+									<p>Partagez votre passion sur le forum d</p>
+									<a href='http://www.usinages.com/' title='Usinages.com, Le forum de l'usinage.' target='_blank'>
+										www.usinages.com/
+									</a>
+									<br/>
+									<br/>
+								
+							<br/>
+							<div style='width:100%;text-align:center;'>
+							</div>
+										</div>
+
+				<div id="corps-droit-bloc2">
+					<h3 style='margin-bottom:0;'>p</h3>
+									<div style='font-weight: bold;'>p</div>
+									Date : p<br/>
+									Lieu : p (p)<br/>					
+									<a href='p' target='_blank'>Site internet</a>
+									<br/>
+									<br/>
+												</div>
+			</div>
+		</div>
+	</div>
+
+		
+			
+		{% endblock %}

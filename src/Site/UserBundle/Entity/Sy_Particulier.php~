@@ -1,0 +1,561 @@
+<?php
+namespace OC\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Sy_Particulier
+ * @ORM\Table(name="Sy_particulier")
+ * @ORM\Entity
+ */
+class Sy_Particulier
+{
+	/**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+	
+	/**
+     * @ORM\OneToOne(targetEntity="OC\UserBundle\Entity\User")
+     */
+	private $user;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="OC\UserBundle\Entity\Sy_Civilite")
+     */
+    private $civilite;
+
+	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nom", type="string", length=255, nullable=false)
+     */
+    private $nom;
+	
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Mail", type="string", length=255, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Prenom", type="string", length=255, nullable=false)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Adresse", type="string", length=255, nullable=false)
+     */
+    private $adresse;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CpCandidat", type="string", length=255, nullable=false)
+     */
+    private $cpcandidat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Ville", type="string", length=255, nullable=false)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Tel", type="string", length=255, nullable=false)
+     */
+    private $tel;
+	
+	/**
+     * @ORM\Column(type="string",nullable = true)
+     *
+     * @Assert\NotBlank(message="Veuillez entrer votre CV :")
+     * @Assert\File(mimeTypes={ "application/pdf" })
+     */
+    private $CV;
+	
+	/**
+     * @var string
+     *
+     * @ORM\Column(name="Photo", type="string", length=255, nullable=true)
+     */
+    private $photo;
+	
+	/**
+	 *
+	 * @var integer
+	 * 
+	 * @ORM\ManyToMany(targetEntity="OC\UserBundle\Entity\Sy_Fonction")
+	 */
+	private $competence;
+
+	/**
+	 *
+	 * @var integer
+	 * 
+	 * @ORM\ManyToMany(targetEntity="OC\UserBundle\Entity\Sy_Siteemploi")
+	 */
+	private $choixMetier;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateCreation", type="date", nullable=false)
+     */
+    private $datecreation;
+	
+	/**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="DateMaj", type="date", nullable=true)
+     */
+    private $datemaj;
+	
+	/**
+	 *
+	 * @var integer
+	 * 
+	 * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Annonce",cascade={"persist"})
+	 */
+	private $annonce;
+	
+
+    
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Particulier
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Particulier
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Particulier
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set cpcandidat
+     *
+     * @param string $cpcandidat
+     *
+     * @return Particulier
+     */
+    public function setCpcandidat($cpcandidat)
+    {
+        $this->cpcandidat = $cpcandidat;
+
+        return $this;
+    }
+
+    /**
+     * Get cpcandidat
+     *
+     * @return string
+     */
+    public function getCpcandidat()
+    {
+        return $this->cpcandidat;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Particulier
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set tel
+     *
+     * @param string $tel
+     *
+     * @return Particulier
+     */
+    public function setTel($tel)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel
+     *
+     * @return string
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set cV
+     *
+     * @param string $cV
+     *
+     * @return Particulier
+     */
+    public function setCV($cV)
+    {
+        $this->CV = $cV;
+
+        return $this;
+    }
+
+    /**
+     * Get cV
+     *
+     * @return string
+     */
+    public function getCV()
+    {
+        return $this->CV;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return Particulier
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set datecreation
+     *
+     * @param \DateTime $datecreation
+     *
+     * @return Particulier
+     */
+    public function setDatecreation($datecreation)
+    {
+        $this->datecreation = $datecreation;
+
+        return $this;
+    }
+
+    /**
+     * Get datecreation
+     *
+     * @return \DateTime
+     */
+    public function getDatecreation()
+    {
+        return $this->datecreation;
+    }
+
+    /**
+     * Set datemaj
+     *
+     * @param \DateTime $datemaj
+     *
+     * @return Particulier
+     */
+    public function setDatemaj($datemaj)
+    {
+        $this->datemaj = $datemaj;
+
+        return $this;
+    }
+
+    /**
+     * Get datemaj
+     *
+     * @return \DateTime
+     */
+    public function getDatemaj()
+    {
+        return $this->datemaj;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \OC\UserBundle\Entity\User $user
+     *
+     * @return Particulier
+     */
+    public function setUser(\OC\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \OC\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set civilite
+     *
+     * @param \OC\UserBundle\Entity\Sy_Civilite $civilite
+     *
+     * @return Particulier
+     */
+    public function setCivilite(\OC\UserBundle\Entity\Sy_Civilite $civilite = null)
+    {
+        $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    /**
+     * Get civilite
+     *
+     * @return \OC\UserBundle\Entity\Sy_Civilite
+     */
+    public function getCivilite()
+    {
+        return $this->civilite;
+    }
+
+    /**
+     * Add competence
+     *
+     * @param \OC\UserBundle\Entity\Sy_Fonction $competence
+     *
+     * @return Particulier
+     */
+    public function addCompetence(\OC\UserBundle\Entity\Sy_Fonction $competence)
+    {
+        $this->competence[] = $competence;
+
+        return $this;
+    }
+
+    /**
+     * Remove competence
+     *
+     * @param \OC\UserBundle\Entity\Sy_Fonction $competence
+     */
+    public function removeCompetence(\OC\UserBundle\Entity\Sy_Fonction $competence)
+    {
+        $this->competence->removeElement($competence);
+    }
+
+    /**
+     * Get competence
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCompetence()
+    {
+        return $this->competence;
+    }
+
+    /**
+     * Add choixMetier
+     *
+     * @param \OC\UserBundle\Entity\Sy_Siteemploi $choixMetier
+     *
+     * @return Particulier
+     */
+    public function addChoixMetier(\OC\UserBundle\Entity\Sy_Siteemploi $choixMetier)
+    {
+        $this->choixMetier[] = $choixMetier;
+
+        return $this;
+    }
+
+    /**
+     * Remove choixMetier
+     *
+     * @param \OC\UserBundle\Entity\Sy_Siteemploi $choixMetier
+     */
+    public function removeChoixMetier(\OC\UserBundle\Entity\Sy_Siteemploi $choixMetier)
+    {
+        $this->choixMetier->removeElement($choixMetier);
+    }
+
+    /**
+     * Get choixMetier
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChoixMetier()
+    {
+        return $this->choixMetier;
+    }
+
+    /**
+     * Set annonce
+     *
+     * @param integer $annonce
+     *
+     * @return Sy_Particulier
+     */
+    public function setAnnonce($annonce)
+    {
+        $this->annonce = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Get annonce
+     *
+     * @return integer
+     */
+    public function getAnnonce()
+    {
+        return $this->annonce;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->competence = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->choixMetier = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->annonce = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add annonce
+     *
+     * @param \OC\PlatformBundle\Entity\Annonce $annonce
+     *
+     * @return Sy_Particulier
+     */
+    public function addAnnonce(\OC\PlatformBundle\Entity\Annonce $annonce)
+    {
+        $this->annonce[] = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonce
+     *
+     * @param \OC\PlatformBundle\Entity\Annonce $annonce
+     */
+    public function removeAnnonce(\OC\PlatformBundle\Entity\Annonce $annonce)
+    {
+        $this->annonce->removeElement($annonce);
+    }
+}

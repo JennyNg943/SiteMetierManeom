@@ -1,0 +1,82 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Candidatsouhait
+ *
+ * @ORM\Table(name="candidatsouhait")
+ * @ORM\Entity
+ */
+class Candidatsouhait
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_CandidatSouhait", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCandidatsouhait;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Candidat", type="integer", nullable=true)
+     */
+    private $idCandidat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_TravailEquipe", type="integer", nullable=true)
+     */
+    private $idTravailequipe;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Encadrement", type="integer", nullable=true)
+     */
+    private $idEncadrement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Departement", type="integer", nullable=true)
+     */
+    private $idDepartement;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_Mobilite", type="integer", nullable=true)
+     */
+    private $idMobilite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Duree", type="string", length=45, nullable=true)
+     */
+    private $duree;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Salaire", type="string", length=45, nullable=true)
+     */
+    private $salaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="GrandeVilleProche", type="string", length=255, nullable=false)
+     */
+    private $grandevilleproche;
+
+
+}
+

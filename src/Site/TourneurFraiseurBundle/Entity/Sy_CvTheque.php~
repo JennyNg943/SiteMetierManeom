@@ -1,0 +1,88 @@
+<?php
+
+namespace Site\TourneurFraiseurBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sy_CvTheque
+ *
+ * @ORM\Table(name="Sy_cvtheque")
+ * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\CandidatRepository")
+ * 
+**/
+class Sy_CvTheque 
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Nom", type="string", length=255, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Prenom", type="string", length=255, nullable=false)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Mail", type="string", length=255, nullable=false)
+     */
+    private $mail;
+	
+    /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Ville")
+	 * @ORM\JoinColumn(nullable=false)
+	 * 
+     */
+    private $codePostal;
+
+	/**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi")
+	 * @ORM\JoinColumn(nullable=false)
+     */
+    private $idSite;
+
+	/**
+     * @var integer
+     *
+     * @ORM\ManyToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Annonce")
+     */
+    private $annonce;
+	
+	/**
+     * @var integer
+     *
+     * @ORM\ManyToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Fonction")
+     */
+	private $fonction;
+	
+
+    
+
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->annonce = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    
+}

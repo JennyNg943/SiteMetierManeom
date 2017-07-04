@@ -1,0 +1,61 @@
+<?php
+
+namespace OC\PlatformBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Siteemploi
+ *
+ * @ORM\Table(name="siteemploi")
+ * @ORM\Entity
+ */
+class Siteemploi
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Id_SiteEmploi", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSiteemploi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="IntituleSiteEmploi", type="string", length=255, nullable=false)
+     */
+    private $intitulesiteemploi;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="UrlSiteEmploi", type="string", length=255, nullable=false)
+     */
+    private $urlsiteemploi;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="FlagMetier", type="boolean", nullable=false)
+     */
+    private $flagmetier;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Initiales", type="string", length=10, nullable=false)
+     */
+    private $initiales;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Domaine", type="string", length=255, nullable=false)
+     */
+    private $domaine;
+
+
+}
+

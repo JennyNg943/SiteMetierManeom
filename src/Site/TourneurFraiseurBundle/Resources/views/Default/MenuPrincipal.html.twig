@@ -1,0 +1,18 @@
+<div id="lienRecruteur">
+					<div class="EspaceVersActualite">
+						<a href="liste-salon.php">Infos utiles</a>
+					</div>
+					<div class="EspaceVersCandidat" style="margin-right:8px;">
+						<a href="{{path('espaceCandidat')}}">Offre d'emploi</a>
+					</div>
+					<div class="EspaceVersRecruteur" style="margin-right:8px;">
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						<a href="{{path('Espace')}}">Mon espace</a>
+					{% else %}
+						<a href="{{path('fos_user_security_login')}}">Mon espace</a>
+					{% endif %}	
+					</div>
+					<div class="EspaceVersAccueil" style="margin-right:8px;" >
+						<a href="/" class="actif">Accueil du site</a>
+					</div>
+				</div>
