@@ -1,0 +1,43 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+{% block body %}
+	<div id="Text">
+		<div>
+			<div id="picto-envoyer-cv">
+				{% image 'bundles/app/img/picto_cv.png' %}
+					<img src="{{ asset_url }}" />
+				{% endimage %}
+				
+			</div>
+			<h1>RECAPITULATIF</h1>
+
+			<div id="ModifInfo">
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+					{% if app.user.type == "Candidat" %}
+						Vous êtes connecté en tant que <b>{{ app.user.nomCandidat }}</b>
+					{% else %}	
+						Vous êtes connecté en tant que <b>{{ app.user.societe }}</b>
+					{% endif %}
+				{% endif %}	
+			</div>
+			<div id="retour-offre" style="margin:0">
+				<a href="{{ path('Espace')}}">Retour à votre profil</a>
+			</div>
+
+			<div id="TextCorps">
+				<table id='recapAnnonce'>
+					<tr><th><b>{{ annonce.TitreAnnonce }}</b></th><td>Réf : <b>{{ annonce.Reference }}</b></td>
+					<tr><td>Localisation : <b>{{ annonce.grandeVilleProche}} ({{ annonce.idDepartement }})</b></td><td>Fonction : {% for f in annonce.fonction %}<b>{{ f.idFonction.intituleFonction }}</b>{% endfor %}</td></tr>
+					<tr><td COLSPAN='2'>Description du poste :</td></tr>
+					<tr><td COLSPAN='2'><b>{{ annonce.DescriptifAnnonce }}</b></td></tr>
+					<tr><td COLSPAN='2'>Profil recherché :</td></tr>
+					<tr><td COLSPAN='2'><b>{{ annonce.ProfilRecherche }}</b></td></tr>
+					<tr><td>Niveau souhaité : <b>{{ annonce.idNiveauSouhaite }}</b></td><td>Type de contrat : <b>{{ annonce.idTypeContrat }}</b></td></tr>
+					<tr><td>Horaire : <b>{{ annonce.idHoraire }}</b></td><td>Site : {% for s in annonce.site %}<b>{{ s.idSiteEmploi.intitulesiteemploi }}</b>{% endfor %}</td></tr>
+				</table>
+					<a href="{{ path('annonce_modif',{'id':annonce.id})}}" id='BoutonAnnonce'>Modifier cette annonce</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -2,9 +2,7 @@ site_tourneur_fraiseur_homepage:
     path:     /
     defaults: { _controller: SiteTourneurFraiseurBundle:Default:index }
     
-espaceCandidat:
-    path:	 /EspaceCandidat
-    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:EspaceCandidat}
+
 
 inscription:
     path:	 /Inscription
@@ -24,3 +22,16 @@ recruteur_modif:
     path:	 /ModificationInformationsPersonnelles
     defaults: {_controller: SiteTourneurFraiseurBundle:Utilisateur:change}
     
+#																		Annonce
+
+espaceCandidat:
+    path:	 /EspaceCandidat
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:EspaceCandidat}
+    
+annonce_ajout:
+    path:	 /AnnonceAjout
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:ajout}
+    
+annonce_modif:
+    path:	 /AnnonceModif/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:modif}

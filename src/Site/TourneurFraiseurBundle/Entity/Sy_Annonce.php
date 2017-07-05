@@ -332,11 +332,11 @@ class Sy_Annonce
     /**
      * Add site
      *
-     * @param \OC\UserBundle\Entity\Sy_Annonce_Sy_Siteemploi $site
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Annonce_Sy_Siteemploi $site
      *
      * @return Annonce
      */
-    public function addSite(\OC\UserBundle\Entity\Sy_Annonce_Sy_Siteemploi $site)
+    public function addSite(\Site\TourneurFraiseurBundle\Entity\Sy_Annonce_Sy_Siteemploi $site)
     {
         $this->site[] = $site;
 		$site->setIdAnnonce($this);
