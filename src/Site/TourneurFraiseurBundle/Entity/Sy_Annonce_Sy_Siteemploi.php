@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Sy_Annonce_Sy_Siteemploi
  *
  * 
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\AnnonceSiteemploiRepository")
  */
 class Sy_Annonce_Sy_Siteemploi
 {

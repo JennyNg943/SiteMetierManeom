@@ -22,16 +22,15 @@
 			<div id="InfoPerso">
 				<a href="{{ path('fos_user_security_logout')}}" style="color:#6d6d6d;text-decoration: underline;font-size: 10px;float:right;">Déconnexion</a>
 			<h2>{{ utilisateur.Societe }}</h2>
-
+			
 					<ul>
 						<li><a href="{{ path('recruteur_modif')}}">Modifier vos informations (coordonnées,contact,...)</a></li>
 						<li><a href="{{ path('fos_user_change_password')}}">Modifier votre mot de passe</a></li>
 						<li><a href="{{ path('annonce_ajout')}}">Créer une nouvelle offre d'emploi</a></li>
-						<li>Gérer les annonces existantes</li>
-						<li>Gérer les candidatures</li>
-						<li>Mon compte</li>
+						<li><a href="{{ path('annonce_gestion')}}">Gérer les annonces existantes</a></li>
+						<!---<li><a href="{{ path('annonce_candidature')}}">Gérer les candidatures</a></li>-->
 					</ul>	
-
+			
 			</div>
 		{% endif %}
 	{% endif %}

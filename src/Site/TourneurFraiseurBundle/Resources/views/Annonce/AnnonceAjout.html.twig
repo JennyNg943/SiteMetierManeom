@@ -9,7 +9,7 @@
 				{% endimage %}
 				
 			</div>
-			<h1>CREEZ VOTRE ANNONCE</h1>
+			<h1>CREEZ / MODIFIER VOTRE ANNONCE</h1>
 
 			<div id="ModifInfo">
 				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -25,21 +25,19 @@
 			</div>
 
 			<div id="TextCorps">
-				Vous allez créer votre annonce. Cette annonce sera mise en ligne par vos soins et sera immédiatement visible par les candidats.</br>
-				En parallèle, une copie sera envoyée au modérateur qui se réserve la possibilité de la suspendre si un (ou des) éléments ci-dessous n'est pas respecté. Pour plus d'efficacité et éviter du retard dans la publication, nous vous proposons de respecter les règles suivantes :
-				</br></br>
-				- Le poste proposé <b>doit impérativement rester dans les métiers du site</b></br>
-				- <b>Aucun lien ou référence à votre société</b> ne doit apparaitre dans l'annonce elle-même</br>
-				- <b>Votre annonce doit respecter les lois et règlements en vigueur relatifs à la non-discrimination</b></br></br>
+				<p>Il est possible d'ajouter votre annonce sur plusieurs sites.
+					Pour cela, <b>choisissez un site et validez le</b>, pour que les <b>fonctions</b> correspondantes à ce site s'affichent.</p></br></br>
 
 				<b>PRECAUTION</b></br>
 				Merci de prendre soin de renseigner tous les champs obligatoires identifiés par un astérisque</br></br>
 		
 			{{ form_start(form)}}
 				{{ form(form)}}
-				<p>Il est possible d'ajouter votre annonce sur plusieurs sites.
-					Pour cela, <b>choisissez un site et validez le</b>, pour que les <b>fonctions</b> correspondantes à ce site s'affichent.</p>
-				{{ form_row(form.site)}}
+				
+				{% for site in form.site %}
+					{{ form_row(site, {'label': 'custom label per item' }) }}
+				{% endfor %}
+
 				<a href="#" id="add_category" class="btn btn-default" style="color:blue">Ajouter un site et une fonction</a>
 			{{ form_end (form)}}
 			</div>
@@ -59,6 +57,8 @@
     var $container = $('div#annonce_ajout_site');
 	$container.attr('data-prototype')
         .replace(/__name__label__/g, 'Site')
+		.replace(/__name__/g,        'Site')
+;
 
     // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
     var index = $container.find(':input').length;

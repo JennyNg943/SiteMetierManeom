@@ -75,7 +75,7 @@ fos_user:
     use_username_form_type: false
     from_email:
         address: support@recrutic.com
-        sender_name: Jenny
+        sender_name: RECRUTIC
     service:
         user_manager: pugx_user_manager             
                 

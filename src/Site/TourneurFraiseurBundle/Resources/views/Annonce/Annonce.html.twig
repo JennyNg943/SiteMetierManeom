@@ -1,0 +1,31 @@
+<table id='recapAnnonce'>
+	<tr><th><b>{{ annonce.TitreAnnonce }}</b></th><td>Réf : <b>{{ annonce.Reference }}</b></td>
+	<tr><td>Localisation : <b>{{ annonce.grandeVilleProche}} ({{ annonce.idDepartement }})</b></td><td>Fonction : {% for f in annonce.fonction %}<b>{{ f.idFonction.intituleFonction }}</b>{% endfor %}</td></tr>
+	<tr><td COLSPAN='2'>Description du poste :</td></tr>
+	<tr><td COLSPAN='2'><b>{{ annonce.DescriptifAnnonce }}</b></td></tr>
+	<tr><td COLSPAN='2'>Profil recherché :</td></tr>
+	<tr><td COLSPAN='2'><b>{{ annonce.ProfilRecherche }}</b></td></tr>
+	<tr><td>Niveau souhaité : <b>{{ annonce.idNiveauSouhaite }}</b></td><td>Type de contrat : <b>{{ annonce.idTypeContrat }}</b></td></tr>
+	<tr><td>Horaire : <b>{{ annonce.idHoraire }}</b></td><td>Site : {% for s in annonce.site %}<b>{{ s.idSiteEmploi.intitulesiteemploi }}</b>{% endfor %}</td></tr>
+</table>
+	{% if annonce.idRecruteur is not empty %}
+		{% if app.user.id == annonce.idRecruteur.id %}
+			<a href="{{ path('annonce_modif',{'id':annonce.id})}}" id='BoutonAnnonce'>Modifier cette annonce</a>
+			{% if annonce.suspension != 11 %}
+				<a href="{{ path('annonce_sus_user',{'id':annonce.id})}}" id='BoutonAnnonce'>Suspendre cette annonce</a>
+			{% else %}
+				<a href="{{ path('annonce_desus_user',{'id':annonce.id})}}" id='BoutonAnnonce'>Ne plus suspendre cette annonce</a>
+			{% endif %}
+				<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
+		{% endif %}		
+	{% else %}	
+		{% if  app.user.id == annonce.idEmployeur.id %}
+			<a href="{{ path('annonce_modif',{'id':annonce.id})}}" id='BoutonAnnonce'>Modifier cette annonce</a>
+			{% if annonce.suspension != 11 %}
+				<a href="{{ path('annonce_sus_user',{'id':annonce.id})}}" id='BoutonAnnonce'>Suspendre cette annonce</a>
+			{% else %}
+				<a href="{{ path('annonce_desus_user',{'id':annonce.id})}}" id='BoutonAnnonce'>Ne plus suspendre cette annonce</a>
+			{% endif %}
+				<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
+		{% endif %}
+{% endif %}		

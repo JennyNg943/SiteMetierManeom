@@ -14,7 +14,7 @@ class RegionType extends AbstractType
     function buildForm(FormBuilderInterface $builder, array $options){
 		
 		$builder
-				
+				->setMethod('GET')
 				->add('idDepartement',		EntityType::class,array('label'=>false,'class'=>'SiteTourneurFraiseurBundle:Departement'))
 				->add('Save',			SubmitType::class,array('label'=>'Rechercher les offres'))
 					;

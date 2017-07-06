@@ -66,7 +66,7 @@ class AnnonceAjoutType extends AbstractType
 						'allow_add'    => true,
 						'allow_delete' => true,
 						'by_reference' => false,
-						'label'				=>false,
+						'label'			=>false,
 						))
 				
 				->add('Save',			SubmitType::class,array('label'=>'Ajouter cette annonce'))

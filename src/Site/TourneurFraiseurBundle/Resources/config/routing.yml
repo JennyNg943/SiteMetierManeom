@@ -29,9 +29,36 @@ espaceCandidat:
     defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:EspaceCandidat}
     
 annonce_ajout:
-    path:	 /AnnonceAjout
+    path:	 /Annonce/Ajout
     defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:ajout}
     
 annonce_modif:
-    path:	 /AnnonceModif/{id}
+    path:	 /Annonce/Modif/{id}
     defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:modif}
+    
+annonce_gestion:
+    path:	 /Annonce/Consultation
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:consultation}
+    
+annonce_gestion_detail:
+    path:	 /Annonce/Consultation/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:consultationDetail}
+    
+annonce_sus_user:
+    path:	 /Annonce/Suspendre/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:suspendre}
+    
+annonce_desus_user:
+    path:	 /Annonce/DeSuspendre/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:desuspendre}
+    
+annonce_delete:
+    path:	 /Annonce/Delete/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:supprimer}
+    
+annonce_candidature:
+    path:	 /Annonce/Candidature
+    defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:candidature}
+    
+#																		Candidat
+

@@ -23,19 +23,11 @@
 			<div id="retour-offre" style="margin:0">
 				<a href="{{ path('Espace')}}">Retour à votre profil</a>
 			</div>
-
+			<div id="retour-offre" style="margin:0">
+				<a href="{{ path('annonce_gestion')}}">Retour à vos annonces</a>
+			</div>
 			<div id="TextCorps">
-				<table id='recapAnnonce'>
-					<tr><th><b>{{ annonce.TitreAnnonce }}</b></th><td>Réf : <b>{{ annonce.Reference }}</b></td>
-					<tr><td>Localisation : <b>{{ annonce.grandeVilleProche}} ({{ annonce.idDepartement }})</b></td><td>Fonction : {% for f in annonce.fonction %}<b>{{ f.idFonction.intituleFonction }}</b>{% endfor %}</td></tr>
-					<tr><td COLSPAN='2'>Description du poste :</td></tr>
-					<tr><td COLSPAN='2'><b>{{ annonce.DescriptifAnnonce }}</b></td></tr>
-					<tr><td COLSPAN='2'>Profil recherché :</td></tr>
-					<tr><td COLSPAN='2'><b>{{ annonce.ProfilRecherche }}</b></td></tr>
-					<tr><td>Niveau souhaité : <b>{{ annonce.idNiveauSouhaite }}</b></td><td>Type de contrat : <b>{{ annonce.idTypeContrat }}</b></td></tr>
-					<tr><td>Horaire : <b>{{ annonce.idHoraire }}</b></td><td>Site : {% for s in annonce.site %}<b>{{ s.idSiteEmploi.intitulesiteemploi }}</b>{% endfor %}</td></tr>
-				</table>
-					<a href="{{ path('annonce_modif',{'id':annonce.id})}}" id='BoutonAnnonce'>Modifier cette annonce</a>
+				{{ include ('SiteTourneurFraiseurBundle:Annonce:Annonce.html.twig') }}
 			</div>
 		</div>
 	</div>

@@ -15,13 +15,13 @@ class AnnonceController extends Controller
 		$listeAnnonce = $repository->getAnnonce();
 		$form = $this->createForm(RegionType::class);
 
-		if ($request->isMethod('POST')) {
-			if ($form->handleRequest($request)->isValid()) {
+		$form->handleRequest($request);
+			if ($form->isSubmitted() && $form->isValid()) {
 				$dept = $form->get('idDepartement')->getData();
 				$listeAnnonce = $repository->getDepartement($dept);
 				
 			}
-		}
+		
 		
 		$paginator = $this->get('knp_paginator');
 		$pagination = $paginator->paginate($listeAnnonce,$request->query->get('page', 1),5);
@@ -68,5 +68,83 @@ class AnnonceController extends Controller
 			}
 		}
 		return $this->render('SiteTourneurFraiseurBundle:Annonce:AnnonceAjout.html.twig',array('form'=>$form->createView()));
+	}
+	
+	public function consultationAction(Request $request){
+		$user = $this->getUser();
+		if($user->getType()=="Recruteur" || $user->getType()=="Admin"){
+			$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Recruteur');
+			$recruteur = $repository->find($user->getId());
+			$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+			$annonce = $repository2->findByIdRecruteur($recruteur);
+		}
+		if($user->getType()=="Employeur"){
+			$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Employeur');
+			$recruteur = $repository->find($user->getId());
+			$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+			$annonce = $repository2->findByIdEmployeur($recruteur);
+		}
+		return $this->render('SiteTourneurFraiseurBundle:Annonce:AnnonceConsultation.html.twig',array('listeannonce'=>$annonce));
+	}
+	
+	public function consultationDetailAction(Request $request,$id){
+		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+		$annonce = $repository->find($id);
+		return $this->render('SiteTourneurFraiseurBundle:Annonce:AnnonceAjoutConfirmation.html.twig',array('annonce'=>$annonce));
+	}
+	
+	public function suspendreAction($id){
+		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+		$annonce = $repository->find($id);
+		$annonce->setSuspension(11);
+		$em = $this->getDoctrine()->getManager();
+		$em->persist($annonce);
+		$em->flush();
+		
+		return $this->redirectToRoute('annonce_gestion');
+	}
+	
+	public function desuspendreAction($id){
+		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+		$annonce = $repository->find($id);
+		$annonce->setSuspension(-1);
+		$em = $this->getDoctrine()->getManager();
+		$em->persist($annonce);
+		$em->flush();
+		
+		return $this->redirectToRoute('annonce_gestion');
+	}
+	
+	public function supprimerAction($id){
+		$repository = $this->getDoctrine()->getManager();
+		$annonce = $repository->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce')->find($id);
+		$listeSite = $repository->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce_Sy_Siteemploi')->getListeSite($id);
+		$em = $this->getDoctrine()->getManager();
+		foreach ($listeSite as $site){
+			$em->remove($site);
+		}
+		
+		$em->remove($annonce);
+		$em->flush();
+		
+		return $this->redirectToRoute('annonce_gestion');
+	}
+	
+	
+	//A faire
+	public function candidatureAction(){
+		$user = $this->getUser();
+		if($user->getType()=="Recruteur" || $user->getType()=="Admin"){
+			$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Recruteur');
+			$recruteur = $repository->find($user->getId());
+			$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+			$annonce = $repository2->findByIdRecruteur($recruteur);
+		}
+		if($user->getType()=="Employeur"){
+			$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Employeur');
+			$recruteur = $repository->find($user->getId());
+			$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+			$annonce = $repository2->findByIdEmployeur($recruteur);
+		}
 	}
 }
