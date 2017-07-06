@@ -17,7 +17,11 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 		
 		$qb	->join('c.site','s')
 			->where('s.idSiteemploi = :id')
-			->setParameter('id',15)	
+			->setParameter('id',15)
+			->andWhere('c.suspension = :nb')
+			->setParameter('nb',10)	
+			->andWhere('c.datepublication > :date')
+			->setParameter('date',new \DateTime('-2 month'))	
 			->orderBy('c.datepublication','DESC')
 			->setMaxResults(5);
 		
@@ -30,19 +34,30 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 		
 		$qb	->join('c.site','s')
 			->where('s.idSiteemploi = :id')
-			->setParameter('id',15)	
+			->setParameter('id',15)
+			->andWhere('c.suspension = :nb')
+			->setParameter('nb',10)	
+			->andWhere('c.datepublication > :date')
+			->setParameter('date',new \DateTime('-2 month'))	
 			->orderBy('c.datepublication','DESC');
 		
 		return $qb->getQuery()->getResult();
 	}
 	
 	function getDepartement($id){
-		$qb=$this->createQueryBuilder('s');
+		$qb=$this->createQueryBuilder('c');
 		
-		$qb	
-			->where('s.idDepartement = :id')
+		$qb	->join('c.site','s')
+			->where('s.idSiteemploi = :id')
+			->setParameter('id',15)
+			->andWhere('c.suspension = :nb')
+			->setParameter('nb',10)	
+			->andWhere('c.datepublication > :date')
+			->setParameter('date',new \DateTime('-2 month'))	
+			->orderBy('c.datepublication','DESC')
+			->andWhere('c.idDepartement = :id')
 			->setParameter('id',$id)	
-			->orderBy('s.datepublication','DESC');
+			;
 		
 		return $qb->getQuery()->getResult();
 	}

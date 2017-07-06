@@ -46,7 +46,20 @@
 				<div id="menu-gauche">
 					<ul id="menu-accordeon">
 						<li class="MenuGeneral"><a  class='menu_actif' href="/"><span>Retour</span><br/>ACCUEIL</a></li>
-						<li class="MenuGeneral"><a href="{{ path ('annonce_ajout') }}" style="color:red;"><span>DEPOSER</span> <br/>UNE ANNONCE</a></li>
+						
+						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+							{% if app.user.type == "Recruteur" or app.user.type == "Employeur" or app.user.type == "Admin" %}
+								<li class="MenuGeneral"><a href="{{ path ('annonce_ajout') }}" style="color:red;"><span>DEPOSER</span> <br/>UNE ANNONCE</a></li>
+								<li class="MenuGeneral"><a href="{{ path ('cvtheque') }}" style="color:red;"><span>CONSULTER</span> <br/>LA CVTEQUE</a></li>
+							{% else %}
+								<li class="MenuGeneral"><a href="{{ path ('candidat_cv') }}" style="color:red;"><span>DEPOSER</span> <br/>UN CV</a></li>					  {% endif %}
+						{% else %}
+								<li class="MenuGeneral"><a href="{{ path ('annonce_ajout') }}" style="color:red;"><span>DEPOSER</span> <br/>UNE ANNONCE</a></li>
+								<li class="MenuGeneral"><a href="{{ path ('candidat_cv') }}" style="color:red;"><span>DEPOSER</span> <br/>UN CV</a></li>
+						{% endif %}
+						
+						
+						
 						<li class="MenuGeneral"><a href="{{ path ('espaceCandidat') }}" style="color:red;"><span>VOIR</span><br/>NOS OFFRES</a></li>
 						<li class="MenuGeneral"><a href="liste-salon.php"><span>Espace</span><br/>INFOS UTILES</a>
 						<ul>

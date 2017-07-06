@@ -12,7 +12,7 @@
 					{% endimage %}
 					</div>
 
-					<h1>OFFRES D'EMPLOI </h1>
+					<h1>CVTheque </h1>
 						
 										
 					<div style="width:620px;padding:5px 10px;height:50px;margin-bottom: 20px;border:1px solid #cccccc;box-shadow: 0 0 15px #3b3a3a;float:left;text-align: center;" id="conteneur-contenu-contact">
@@ -30,44 +30,38 @@
 					<div id="tableau-offre" style="margin-bottom:20px;width:650px;text-align:center;">
 						<div id="titre-tableau-offre" style="margin-bottom: 10px;">
 							<div id="tableau-date">
-								Recruteur
+								Nom
 							</div>
 							<div id="tableau-fonction">
-								Annonce
+								Prenom
 							</div>
 							<div id="tableau-secteur">
-								Ville proche
+								Ville
 							</div>
-							<div id="tableau-contrat" style="margin-right: 0px;">
-								Contrat
-							</div>
+						
 						</div>
-						{% for annonce in pagination %}	
+						{% for candidat in pagination %}	
 							<div class="tableau-ligne" id="" style='padding:5px;margin:5px 5px 5px -5px;'>
 
 
 								<div class="date" style='margin:0;padding:0;height:50px;'>
 									<div style='font-weight:normal;width:100px;margin:0;padding:0;overflow:auto;'>
-										{% if annonce.idRecruteur is not empty %}
-											{{ annonce.idRecruteur.Societe }}
-										{% else %}
-											{{ annonce.idEmployeur.Societe }}
-										{% endif %}
+										{{ candidat.nom|truncate(3) }}
 									</div></div>
 
 								<div class="fonction">
 									<h2 style="border-bottom: dotted 1px #8A8A8A;padding-bottom:5px;text-transform: uppercase;">
 										<a href="offre--tourneur-a-commandes-numeriques-(-h-f).html" title="voir l'offre">
-											{{ annonce.titreAnnonce }}
+											{{ candidat.prenom }}
 										</a></h2>
 									<p style="overflow:hidden;height:40px;">
-										{{ annonce.DescriptifAnnonce }}<span style='font-weight:bold;'>...</span>										</p>
+										{{ candidat.codePostal.nomCommune }}<span style='font-weight:bold;'>...</span>										</p>
 								</div>
 																	<div class="secteur" >
-								{{ annonce.grandevilleproche }}									</div>
+															</div>
 
 																	<div class="contrat" style='padding-left:25px;padding-right:0;margin:0;text-align:center;'>
-																		{{ annonce.idTypeContrat|truncate(3) }}								</div>
+																						</div>
 							</div>
 						
 								{% endfor %}

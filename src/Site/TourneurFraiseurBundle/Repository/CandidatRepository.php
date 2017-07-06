@@ -19,4 +19,23 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 		return $qb->getQuery()->getResult();
 	}
 	
+	function getCVThequeTrie($dept)
+	{
+		$qb = $this->createQueryBuilder('a');
+		$qb ->where('a.idSite = :id')
+			->setParameter('id', 15)
+			->orderBy('a.nom','ASC');
+			
+		if($dept != null){
+			$qb->join('a.codePostal','v')
+				->join('v.departement','d')
+				->andWhere('d.id = :dept')
+				->setParameter('dept', $dept);
+		}
+
+		return $qb
+				->getQuery()
+				->getResult();
+	}
+	
 }

@@ -6,25 +6,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Site\TourneurFraiseurBundle\Form\RegionType;
 use Site\TourneurFraiseurBundle\Form\Annonce\AnnonceAjoutType;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class AnnonceController extends Controller
 {
     public function EspaceCandidatAction(Request $request)
     {
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Annonce');
-		$listeAnnonce = $repository->getAnnonce();
+		$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
+		$listeAnnonce1 = $repository->getAnnonce();
+		$listeAnnonce2 = $repository2->getAnnonce();
 		$form = $this->createForm(RegionType::class);
 
 		$form->handleRequest($request);
 			if ($form->isSubmitted() && $form->isValid()) {
 				$dept = $form->get('idDepartement')->getData();
-				$listeAnnonce = $repository->getDepartement($dept);
+				$listeAnnonce1 = $repository->getDepartement($dept);
+				$listeAnnonce2 = $repository->getDepartement($dept);
 				
 			}
-		
-		
+		$listeAnnonce = new ArrayCollection(array_merge($listeAnnonce1,$listeAnnonce2));
+		$liste = $this->trieListe($listeAnnonce);
 		$paginator = $this->get('knp_paginator');
-		$pagination = $paginator->paginate($listeAnnonce,$request->query->get('page', 1),5);
+		$pagination = $paginator->paginate($liste,$request->query->get('page', 1),5);
 		
         return $this->render('SiteTourneurFraiseurBundle:Annonce:OffresEmploi.html.twig',array('listeAnnonce'=>$listeAnnonce,'pagination'=>$pagination,'form' => $form->createView()));
     }
@@ -146,5 +150,35 @@ class AnnonceController extends Controller
 			$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
 			$annonce = $repository2->findByIdEmployeur($recruteur);
 		}
+	}
+	
+	
+	function trieListe($liste){
+		$listeannonce = new ArrayCollection();
+		$tmp = new ArrayCollection();
+		$tmp2 = new ArrayCollection();
+		foreach ($liste as $annonce){
+			if(($annonce->getPremium())==1){
+				$listeannonce->add($annonce);
+			}else{
+				$tmp->add($annonce);
+			}
+		}
+		
+		foreach ($tmp as $annonce){
+			if($annonce->getNew() == 1){
+				$listeannonce->add($annonce);
+			}else{
+				$tmp2->add($annonce);
+			}
+		}
+			
+			foreach ($tmp2 as $annonce){
+				$listeannonce->add($annonce);
+			}
+			
+		
+		
+		return $listeannonce;
 	}
 }

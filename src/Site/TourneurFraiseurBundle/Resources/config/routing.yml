@@ -62,3 +62,10 @@ annonce_candidature:
     
 #																		Candidat
 
+cvtheque:
+    path:	 /Recruteur/Cvtheque
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cvtheque}
+
+candidat_cv:
+    path:	 /Candidat/Cv
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cv}
