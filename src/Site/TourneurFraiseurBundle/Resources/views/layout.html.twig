@@ -45,7 +45,7 @@
 					</div>			
 				<div id="menu-gauche">
 					<ul id="menu-accordeon">
-						<li class="MenuGeneral"><a  class='menu_actif' href="/"><span>Retour</span><br/>ACCUEIL</a></li>
+						<li class="MenuGeneral"><a  class='menu_actif' href="{{ path ('site_tourneur_fraiseur_homepage') }}"><span>Retour</span><br/>ACCUEIL</a></li>
 						
 						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							{% if app.user.type == "Recruteur" or app.user.type == "Employeur" or app.user.type == "Admin" %}
@@ -64,7 +64,6 @@
 						<li class="MenuGeneral"><a href="liste-salon.php"><span>Espace</span><br/>INFOS UTILES</a>
 						<ul>
 							<li class="MenuGeneral"><a href="liste-salon.php"><span>Liste des</span><br/>SALON</a></li>
-							<li class="MenuGeneral"><a href="liste-salon.php"><span>Toute l'</span><br/>ACTUALITE</a></li>
 							<li class="MenuGeneral"><a href="liste-salon.php"><span>Nos</span><br/>PARTENAIRES</a></li>
 							<li class="MenuGeneral"><a href="liste-salon.php"><span>Liste des</span><br/>ECOLES ET CFA</a></li>
 							<li class="MenuGeneral"><a href="liste-salon.php"><span>Nous</span><br/>CONTACTER</a></li>
@@ -76,10 +75,11 @@
 			
 		
 			<div id="EspacePubHorizontal" style=" " >
-				<div style="float:left;margin-top:-56px;">
 					<!--<script type="text/javascript" src="js/advertisement.js"></script>-->
-				
-			</div></div>
+				{% image 'bundles/app/img/EspacePub/Logo_BACA_Recrutic.jpg' %}
+							<a href="/"><img src="{{ asset_url }}" alt="Le site emploi totalement dédié aux métiers de l'usinage"/></a>
+				{% endimage %}
+			</div>
 			
 		
 			{% block body %}

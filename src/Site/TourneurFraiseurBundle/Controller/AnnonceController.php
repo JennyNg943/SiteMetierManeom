@@ -94,6 +94,10 @@ class AnnonceController extends Controller
 	public function consultationDetailAction(Request $request,$id){
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Annonce');
 		$annonce = $repository->find($id);
+		if ($annonce == null){
+			$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Annonce');
+			$annonce = $repository->find($id);
+		}
 		return $this->render('SiteTourneurFraiseurBundle:Annonce:AnnonceAjoutConfirmation.html.twig',array('annonce'=>$annonce));
 	}
 	

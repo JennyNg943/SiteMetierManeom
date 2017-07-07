@@ -19,13 +19,13 @@ Espace:
 #																	Utilisateur
 
 recruteur_modif:
-    path:	 /ModificationInformationsPersonnelles
+    path:	 /User/ModificationInformationsPersonnelles
     defaults: {_controller: SiteTourneurFraiseurBundle:Utilisateur:change}
     
 #																		Annonce
 
 espaceCandidat:
-    path:	 /EspaceCandidat
+    path:	 /OffreEmploi
     defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:EspaceCandidat}
     
 annonce_ajout:
@@ -41,7 +41,7 @@ annonce_gestion:
     defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:consultation}
     
 annonce_gestion_detail:
-    path:	 /Annonce/Consultation/{id}
+    path:	 /Consultation/{id}
     defaults: {_controller: SiteTourneurFraiseurBundle:Annonce:consultationDetail}
     
 annonce_sus_user:
@@ -63,9 +63,9 @@ annonce_candidature:
 #																		Candidat
 
 cvtheque:
-    path:	 /Recruteur/Cvtheque
+    path:	 /User/Cvtheque
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cvtheque}
 
 candidat_cv:
-    path:	 /Candidat/Cv
+    path:	 /User/Cv
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cv}

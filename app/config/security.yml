@@ -39,5 +39,5 @@ security:
         secret:     %secret%
         
   access_control:
-      - { path: ^/Admin, roles: ROLE_USER }
-      - { path: ^/User, roles:  ROLE_USER }
+      - { path: ^/User, roles: ROLE_USER }
+      - { path: ^/Annonce, roles:  ROLE_USER }

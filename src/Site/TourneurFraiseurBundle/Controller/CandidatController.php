@@ -23,25 +23,19 @@ class CandidatController extends Controller
     {
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_CvTheque');
 		$form = $this->createForm(RegionType::class);
-		$session = $request->getSession();
-		if ($session->get('candidat') == null) {
-			$candidat = $repository->getCVThequeTrie(null);
-			$session->set('candidat', $candidat);
-		}
+		$candidat = $repository->findByIdSite(15);
 		$form->handleRequest($request);
 			if ($form->isSubmitted() && $form->isValid()) {
-				$dept = $form->get('Departement')->getData();
+				$dept = $form->get('idDepartement')->getData();
 				
 				$candidat = $repository->getCVThequeTrie($dept);
 				
-				$session->set('candidat', $candidat);
+				
 			}	
-		$liste = $session->get('candidat');
-		
 		$paginator = $this->get('knp_paginator');
 		$pagination = $paginator->paginate(
-		$liste,
-		$request->query->get('page',1),50
+		$candidat,
+		$request->query->get('page',1),10
 		);
 		
         return $this->render('SiteTourneurFraiseurBundle:Candidat:CvTheque.html.twig',array(

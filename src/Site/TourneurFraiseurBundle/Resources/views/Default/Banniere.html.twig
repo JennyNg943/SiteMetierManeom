@@ -1,0 +1,18 @@
+<div id="ModifInfo">
+	{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		{% if app.user.type == "Candidat" %}
+			Vous êtes connecté en tant que <b>{{ app.user.nomCandidat }}</b>
+			</div>
+		{% else %}	
+			Vous êtes connecté en tant que <b>{{ app.user.societe }}</b>
+			</div>
+		{% endif %}
+	{% else %}	
+		<a href="{{ path('fos_user_security_login')}} ">Connectez-vous</a>
+		</div>
+	{% endif %}	
+	<div id="retour-offre" style="margin:0">
+	 <a href=javascript:history.go(-1)>Retour</a>
+	 </div>
+
+

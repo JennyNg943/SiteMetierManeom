@@ -5,19 +5,7 @@
 		<div>
 			
 			<h1>VOS ANNONCE</h1>
-
-			<div id="ModifInfo">
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-					{% if app.user.type == "Candidat" %}
-						Vous êtes connecté en tant que <b>{{ app.user.nomCandidat }}</b>
-					{% else %}	
-						Vous êtes connecté en tant que <b>{{ app.user.societe }}</b>
-					{% endif %}
-				{% endif %}	
-			</div>
-			<div id="retour-offre" style="margin:0">
-				<a href="{{ path('Espace')}}">Retour à votre profil</a>
-			</div>
+			{{ include ('SiteTourneurFraiseurBundle:Default:Banniere.html.twig') }}
 
 			<div id="TextCorps">
 				<div id="loupe-offre-emploi">
