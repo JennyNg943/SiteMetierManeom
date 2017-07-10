@@ -1,5 +1,5 @@
 <?php
-namespace Site\PlatformBundle\Form\Utilisateur;
+namespace Site\TourneurFraiseurBundle\Form\Utilisateur;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

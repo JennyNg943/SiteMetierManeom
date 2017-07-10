@@ -38,4 +38,20 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 				->getResult();
 	}
 	
+	function getCandidatFonction($candidat,$fonction){
+		$qb = $this->createQueryBuilder('c');
+		$qb 
+			->where('c.id = :id')
+			->setParameter('id', $candidat)
+			->join('c.fonction','f')
+			->andWhere('f.id = :fonction')
+			->setParameter('fonction', $fonction)	
+			;
+		
+		
+		return $qb
+				->getQuery()
+				->getResult();
+	}
+	
 }

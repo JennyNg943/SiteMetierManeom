@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    CV_directory: '%kernel.root_dir%/../web'
 
 framework:
     #esi: ~
@@ -62,11 +63,12 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
+    transport: mail
+    auth_mode:  login
+    host: auth.smtp.1and1.fr
+    port: 465
+    username:  contact@recrutic.com
+    password:  recrutic
 
 fos_user:
     db_driver:     orm                       # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début

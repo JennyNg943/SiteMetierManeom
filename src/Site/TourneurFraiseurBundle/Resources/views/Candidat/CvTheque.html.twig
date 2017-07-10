@@ -29,7 +29,7 @@
 					
 						<tr><th>Nom</th><th>Prenom</th><th>Ville</th><th>Contacter</th></tr>
 					{% for candidat in pagination %}
-							<tr><td>{{candidat.nom|truncate(1)}}</td><td>{{candidat.prenom}}</td><td>{{candidat.codePostal}}</td><td id="CvThequeInteraction"><a href="#">
+							<tr><td>{{candidat.nom|truncate(1)}}</td><td>{{candidat.prenom}}</td><td>{{candidat.codePostal}}</td><td id="CvThequeInteraction"><a href="{{ path('candidat_consultation',{'id':candidat.id})}}">
 					{% image 'bundles/app/img/voir.png' %}
 						<img src="{{ asset_url }}" alt="Voir" id="CVThequeImg"/>
 						{% endimage %}</a>

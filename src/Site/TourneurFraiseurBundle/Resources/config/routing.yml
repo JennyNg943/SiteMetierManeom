@@ -2,6 +2,9 @@ site_tourneur_fraiseur_homepage:
     path:     /
     defaults: { _controller: SiteTourneurFraiseurBundle:Default:index }
     
+contact:
+    path:     /Contact
+    defaults: { _controller: SiteTourneurFraiseurBundle:Default:contact }
 
 
 inscription:
@@ -69,3 +72,17 @@ cvtheque:
 candidat_cv:
     path:	 /User/Cv
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cv}
+    
+candidat_consultation:
+    path:	 /User/Cvtheque/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:consultation}
+    
+candidature:
+    path:	/User/Candidature/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:candidature}
+    
+#																		InfosUtiles
+
+infoUtiles:
+    path:	/Info
+    defaults: {_controller: SiteTourneurFraiseurBundle:Default:info}

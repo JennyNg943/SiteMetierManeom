@@ -3,6 +3,7 @@
 namespace Site\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Site\TourneurFraiseurBundle\Entity\Sy_CvTheque;
 
 class DefaultController extends Controller
 {
@@ -49,9 +50,9 @@ class DefaultController extends Controller
 		if($candidat != null){
 			$type = $repository3->find(1);
 			$user->setType($type);
-			$repository4 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Ville');
-			$ville = $repository4->findOneByCodePostal($candidat->getCp());
-			$cvtheque = new \OC\UserBundle\Entity\Sy_CvTheque();
+			$repository5 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Ville');
+			$ville = $repository5->findOneByCodePostal($candidat->getCp());
+			$cvtheque = new Sy_CvTheque();
 			$cvtheque->setNom($candidat->getNomCandidat())->setPrenom($candidat->getPrenomCandidat())->setCodePostal($ville)->setMail($user->getEmail())->setIdSite($candidat->getSite());
 			$em = $this->getDoctrine()->getManager();
 					$em->persist($cvtheque);

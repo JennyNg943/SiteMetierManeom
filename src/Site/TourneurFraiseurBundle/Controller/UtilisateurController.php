@@ -5,8 +5,8 @@ namespace Site\TourneurFraiseurBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Site\TourneurFraiseurBundle\Form\Utilisateur\RecruteurModificationType;
 use Symfony\Component\HttpFoundation\Request;
-use Site\TourneurFraiseurBundleu\Form\Utilisateur\CandidatModificationType;
-use Site\TourneurFraiseurBundleu\Form\Utilisateur\EmployeurModificationType;
+use Site\TourneurFraiseurBundle\Form\Utilisateur\CandidatModificationType;
+use Site\TourneurFraiseurBundle\Form\Utilisateur\EmployeurModificationType;
 
 class UtilisateurController extends Controller
 {

@@ -5,5 +5,25 @@
 {% endblock %}
 
 {% block body %}
-		Bravo ! Vous êtes maintenant inscrit !
+	<div id="Text">
+		<div>
+			<div id="picto-envoyer-cv">
+				{% image 'bundles/app/img/picto_cv.png' %}
+					<img src="{{ asset_url }}" />
+				{% endimage %}
+			</div>
+		<h1>INSCRIPTION CONFIRMEE</h1>		
+			<div id="TextCorps">	
+				Bravo ! Vous êtes maintenant inscrit !</br></br>
+				<div id="Bouton">
+					<a href="{{ path('Espace')}}" id='BoutonAnnonce'>Accèder à mon espace !</a>
+					{% if app.user.type == "Candidat" %}
+						<a href="{{ path('espaceCandidat')}}" id='BoutonAnnonce'>Consulter nos offres</a>
+					{% else %}
+						<a href="{{ path('annonce_ajout')}}" id='BoutonAnnonce'>Déposer une annonce ?</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

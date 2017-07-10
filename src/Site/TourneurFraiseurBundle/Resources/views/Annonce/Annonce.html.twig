@@ -8,6 +8,7 @@
 	<tr><td>Niveau souhaité : <b>{{ annonce.idNiveauSouhaite }}</b></td><td>Type de contrat : <b>{{ annonce.idTypeContrat }}</b></td></tr>
 	<tr><td>Horaire : <b>{{ annonce.idHoraire }}</b></td><td>Site : {% for s in annonce.site %}<b>{{ s.idSiteEmploi.intitulesiteemploi }}</b>{% endfor %}</td></tr>
 </table>
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 	{% if annonce.idRecruteur is not empty %}
 		{% if app.user.id == annonce.idRecruteur.id %}
 			<a href="{{ path('annonce_modif',{'id':annonce.id})}}" id='BoutonAnnonce'>Modifier cette annonce</a>
@@ -28,4 +29,6 @@
 			{% endif %}
 				<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
 		{% endif %}
+	{% endif %}		
 {% endif %}		
+<a href="{{ path('candidature',{'id':annonce.id})}}" id='BoutonAnnonce'>Postuler à cette annonce</a>

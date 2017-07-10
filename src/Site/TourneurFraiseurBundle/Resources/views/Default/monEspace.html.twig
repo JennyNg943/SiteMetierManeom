@@ -9,10 +9,10 @@
 		<br>
 		Industriels, cabinets de recrutement, agence de travail temporaire, ce site vous est accessible gratuitement pour le dépôt de vos offres d'emploi, sous une seule condition : 
 		<br/>qu'il s'agisse d'un emploi entrant dans la logique de ce site.<br/><br/>Besoin de plus de services : accès CV-thèque, mise en avant de votre offre, communication spécifique : 
-		<a href="contactRecruteur.php"  style="text-decoration: underline;font-weight: bold;">contactez-nous simplement en cliquant ici</a>
+		<a href="{{ path('contact')}}"  style="text-decoration: underline;font-weight: bold;">contactez-nous simplement en cliquant ici</a>
 		, et vous recevrez par retour un dossier complet.<br/>
 		Enfin, nous avons souhaité réaliser un site simple, convivial et pertinent : 
-		<a href="contactRecruteur.php" style="text-decoration: underline;font-weight: bold;">n'hésitez pas à nous faire part de vos remarques si des voies d'amélioration vous apparaissent opportunes.</a>
+		<a href="{{ path('contact')}}" style="text-decoration: underline;font-weight: bold;">n'hésitez pas à nous faire part de vos remarques si des voies d'amélioration vous apparaissent opportunes.</a>
 		<br/>
 		<br/>
 		L'équipe Tourneurs-Fraiseurs.com		<br/>
@@ -32,6 +32,19 @@
 					</ul>	
 			
 			</div>
+		{% else %}			
+			<div id="InfoPerso">
+				<a href="{{ path('fos_user_security_logout')}}" style="color:#6d6d6d;text-decoration: underline;font-size: 10px;float:right;">Déconnexion</a>
+			<h2>{{ utilisateur.nomCandidat }}</h2>
+			
+					<ul>
+						<li><a href="{{ path('recruteur_modif')}}">Modifier vos informations (coordonnées,contact,...)</a></li>
+						<li><a href="{{ path('fos_user_change_password')}}">Modifier votre mot de passe</a></li>
+						
+						<!---<li><a href="{{ path('annonce_candidature')}}">Gérer les candidatures</a></li>-->
+					</ul>	
+			
+			</div>		
 		{% endif %}
 	{% endif %}
 		</div>

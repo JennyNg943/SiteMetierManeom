@@ -1,0 +1,29 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+{% block body %}
+	<div id="Text">
+		<div>
+			<div id="picto-envoyer-cv">
+				{% image 'bundles/app/img/picto_cv.png' %}
+					<img src="{{ asset_url }}" />
+				{% endimage %}
+				
+			</div>
+			<h1>ENVOYER UNE CANDIDATURE</h1>
+
+			{{ include ('SiteTourneurFraiseurBundle:Default:Banniere.html.twig') }}
+
+			<div id="TextCorps">
+
+				<b>PRECAUTION</b></br>
+				Merci de prendre soin de renseigner tous les champs obligatoires identifiés par un astérisque</br></br>
+		
+			
+				{{ form(form)}}
+				
+				
+			</div>
+		</div>
+	</div>
+			
+{% endblock %}

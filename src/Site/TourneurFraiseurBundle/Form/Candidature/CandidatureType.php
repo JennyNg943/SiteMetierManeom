@@ -1,5 +1,5 @@
 <?php
-namespace Site\TourneurFraiseurBundle\Form;
+namespace Site\TourneurFraiseurBundle\Form\Candidature;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -50,7 +50,7 @@ class CandidatureType extends AbstractType
 				'label'			=> 'Telephone :',
 				
 		))			
-		->add('cvcandidat',				FileType::class,array('label'=>'CV (PDF file)'))
+		->add('cvcandidat',				FileType::class,array('label'=>'CV'))
 		->add('commentaire',			TextareaType::class,array(
 				'label'			=> 'Commentaire'))
 		->add('save',						SubmitType::class,array('label'	=> 'Envoyer cette candidature'))		
@@ -59,7 +59,7 @@ class CandidatureType extends AbstractType
 	public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => \OC\UserBundle\Entity\Sy_Candidature::class,
+            'data_class' => \Site\UserBundle\Entity\Sy_Candidature::class,
         ));
     }
 }

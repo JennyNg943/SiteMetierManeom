@@ -1,0 +1,21 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+{% block body %}
+	<div id="Text">
+		<div>
+			<div id="picto-envoyer-cv">
+				{% image 'bundles/app/img/picto_cv.png' %}
+					<img src="{{ asset_url }}" />
+				{% endimage %}
+				
+			</div>
+			<h1>CANDIDAT</h1>
+
+			{{ include ('SiteTourneurFraiseurBundle:Default:Banniere.html.twig') }}
+			<div id="TextCorps">
+				{{ include ('SiteTourneurFraiseurBundle:Candidat:Candidat.html.twig') }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

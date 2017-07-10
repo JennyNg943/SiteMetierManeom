@@ -3,6 +3,8 @@
 namespace Site\TourneurFraiseurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Site\TourneurFraiseurBundle\Form\ContactType;
 
 class DefaultController extends Controller
 {
@@ -29,5 +31,28 @@ class DefaultController extends Controller
 			}
 		}
 		return $this->render('SiteTourneurFraiseurBundle:Default:monEspace.html.twig',array('utilisateur'=>$recruteur));
+	}
+	
+	public function contactAction(Request $request){
+		
+		
+		$form = $this->createForm(ContactType::class);
+		if ($request->isMethod('POST')) {
+			if ($form->handleRequest($request)->isValid()) {
+				$message = \Swift_Message::newInstance()
+						->setSubject($form->get('Sujet')->getData())
+						->setFrom($form->get('Mail')->getData())
+						->setTo('a.bouteille@maneom.com')
+						->setBody($form->get('Message')->getData());
+					$this->get('mailer')->send($message);
+				return $this->render('SiteTourneurFraiseurBundle:Default:ContactOk.html.twig');	
+			}
+		}
+
+		return $this->render('SiteTourneurFraiseurBundle:Default:Contact.html.twig',array('form'=>$form->createView()));
+	}
+	
+	public function infoAction(Request $request){
+		return $this->render('SiteTourneurFraiseurBundle:Default:InfoUtiles.html.twig');
 	}
 }

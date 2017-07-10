@@ -1,5 +1,5 @@
 <?php
-namespace Site\TourneurFraiseurBundleu\Form\Utilisateur;
+namespace Site\TourneurFraiseurBundle\Form\Utilisateur;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,6 +14,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Site\TourneurFraiseurBundle\Repository\DepartementRepository;
 use Site\TourneurFraiseurBundle\Repository\SiteRepository;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CandidatModificationType extends AbstractType
 {
@@ -62,7 +63,12 @@ class CandidatModificationType extends AbstractType
 				'placeholder'	=> '',
 				'query_builder' => function(SiteRepository $er) {
 									return $er->getSiteTri();}))		
-		->add('newsletter',				CheckboxType::class,array(
+		->add('newsletter',				ChoiceType::class,array(
+			'choices'		=> array(
+				'Oui'	=> true,
+				'Non'	=>false
+				
+				),
 				'label'=>'Ne pas recevoir d\'offres d\'emploi',
 				'required'=>false))				
 		->add('save', SubmitType::class,array('label'=>'Confirmer mes informations'));
