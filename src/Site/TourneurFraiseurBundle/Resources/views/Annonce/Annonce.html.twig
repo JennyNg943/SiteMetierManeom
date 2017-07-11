@@ -29,6 +29,10 @@
 			{% endif %}
 				<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
 		{% endif %}
-	{% endif %}		
+	{% endif %}
+	{% if app.user.type == "Candidat" %}
+		<a href="{{ path('candidature',{'id':annonce.id})}}" id='BoutonAnnonce'>Postuler à cette annonce</a>	
+	{% endif %}
+{% else %}	
+	<a href="{{ path('candidature',{'id':annonce.id})}}" id='BoutonAnnonce'>Postuler à cette annonce</a>
 {% endif %}		
-<a href="{{ path('candidature',{'id':annonce.id})}}" id='BoutonAnnonce'>Postuler à cette annonce</a>

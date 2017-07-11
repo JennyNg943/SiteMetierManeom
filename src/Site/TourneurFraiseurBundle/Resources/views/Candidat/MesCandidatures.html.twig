@@ -1,0 +1,34 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+{% block body %}
+	<div id="Text">
+		<div>
+			
+			<h1>VOS CANDIDATURES</h1>
+			{{ include ('SiteTourneurFraiseurBundle:Default:Banniere.html.twig') }}
+
+			<div id="TextCorps">
+				<div id="loupe-offre-emploi">
+					{% image 'bundles/app/img/icone-annonce-attente.png' %}
+						<img  style="padding-top:5px;" src="{{ asset_url }}" />
+					{% endimage %}
+				</div>
+				
+					<ul style="margin: 10%;">
+					{% for annonce in app.user.Syannonce %}
+						<li><a href="{{ path('annonce_gestion_detail',{'id':annonce.id}) }}">{{ annonce.TitreAnnonce }} <p style="float:right"> Réf : {{ annonce.reference }}</p></a></li>
+					{% endfor %}
+					{% for annonce in app.user.annonce %}
+						<li><a href="{{ path('annonce_gestion_detail',{'id':annonce.id}) }}">{{ annonce.TitreAnnonce }} <p style="float:right"> Réf : {{ annonce.reference }}</p></a></li>
+					{% endfor %}
+					
+					</ul>
+				
+				
+				
+			</div>
+		</div>
+	</div>
+			
+			
+{% endblock %}

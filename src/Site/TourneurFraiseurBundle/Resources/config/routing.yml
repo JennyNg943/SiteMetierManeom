@@ -81,6 +81,10 @@ candidature:
     path:	/User/Candidature/{id}
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:candidature}
     
+mesCandidatures:
+    path:	/User/MesCandidatures
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:mesCandidatures}
+    
 #																		InfosUtiles
 
 infoUtiles:

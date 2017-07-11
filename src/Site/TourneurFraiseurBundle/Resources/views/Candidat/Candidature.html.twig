@@ -14,7 +14,9 @@
 			{{ include ('SiteTourneurFraiseurBundle:Default:Banniere.html.twig') }}
 
 			<div id="TextCorps">
-
+				{% if erreur != "" %}
+					{{ erreur }}
+				{% endif %}
 				<b>PRECAUTION</b></br>
 				Merci de prendre soin de renseigner tous les champs obligatoires identifiés par un astérisque</br></br>
 		

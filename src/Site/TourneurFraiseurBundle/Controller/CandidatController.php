@@ -17,6 +17,7 @@ class CandidatController extends Controller
 	
 	public function cvAction(Request $request)
     {
+		$erreur="";
 		$user = $this->getUser();
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Candidature');
 		$candidat = $repository->find($user->getId());
@@ -45,7 +46,8 @@ class CandidatController extends Controller
 		}	
 		return $this->render('SiteTourneurFraiseurBundle:Candidat:Candidature.html.twig',array(
 			'candidat'	=> $candidat,
-			'form'		=> $form->createView()
+			'form'		=> $form->createView(),
+			'erreur'	=> $erreur
 			));
     }
 	
@@ -94,10 +96,8 @@ class CandidatController extends Controller
 		$candidat = $repositoryCandidat->find($user->getId());
 		$candidat->setMailCandidat($user->getEmail())->setCvcandidat(null);
 		$form = $this->createForm(CandidatureType::class, $candidat);
-		$fonction = $annonce->getFonction();
 		$erreur="";
-		$ok = 0;
-		foreach ($fonction as $f){
+		foreach ($annonce->getFonction() as $f){
 			if(($repositoryCandidat->getCandidatFonction($candidat,$f->getIdFonction()))==null){
 				$candidat->addFonction($f->getIdFonction());
 			}
@@ -105,15 +105,13 @@ class CandidatController extends Controller
 		foreach($candidat->getAnnonce() as $a){
 			if($a == $annonce){
 				$erreur = "Vous avez déjà postulé à cette annonce";
-				$ok = -1;
 			}
 		}
-		if ($request->isMethod('POST')) {
-			if ($form->handleRequest($request)->isValid()) {
-				if($ok == -1){
+			if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+				if($erreur == "Vous avez déjà postulé à cette annonce"){
 					return $this->render('SiteTourneurFraiseurBundle:Candidat:Candidature.html.twig', array('form' => $form->createView(),'annonce'=>$annonce,'erreur'=>$erreur));
 				}else{
-					if($annonce->getNew()==1){
+					if($annonce->getNew() == 1){
 						$candidat->addSyAnnonce($annonce);
 					}else{
 						$candidat->addAnnonce($annonce);
@@ -143,15 +141,16 @@ class CandidatController extends Controller
 						->setBody($body)
 						->attach(Swift_Attachment::fromPath($fileName))	;
 					$this->get('mailer')->send($message);
-
-
-				  return $this->render('SiteTourneurFraiseurBundle:Candidat:CandidatureConf.html.twig');
-				}
+				  return $this->render('SiteTourneurFraiseurBundle:Candidat:AnnonceAjoutConfirmation.html.twig');
 			}
 		}
 		return $this->render('SiteTourneurFraiseurBundle:Candidat:Candidature.html.twig', array('form' => $form->createView(),'annonce'=>$annonce,'erreur'=>$erreur));
 		
 		
+	}
+	
+	public function mesCandidaturesAction(){
+		return $this->render('SiteTourneurFraiseurBundle:Candidat:MesCandidatures.html.twig');
 	}
 	
 }

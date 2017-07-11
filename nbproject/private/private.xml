@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/views/layout.html.twig</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/views/Default/MenuPrincipal.html.twig</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Controller/UtilisateurController.php</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Entity/Ville.php</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Controller/CandidatController.php</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/views/Candidat/CvTheque.html.twig</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Entity/Sy_CvTheque.php</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Repository/CandidatRepository.php</file>
-            <file>file:/C:/wamp64/www/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/views/Annonce/OffresEmploi.html.twig</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
