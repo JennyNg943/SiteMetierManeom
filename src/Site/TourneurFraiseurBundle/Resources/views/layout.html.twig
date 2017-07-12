@@ -9,7 +9,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <title>{% block title %}Tourneur Fraiseur{% endblock %}</title>
-		
+		{% image 'bundles/app/img/favicon.ico' %}
+			<link rel="icon" type="image/png" href="{{ asset_url }}" />
+		{% endimage %}
 		{% block stylesheets %}
 			{% stylesheets 'bundles/app/css/*' filter='cssrewrite'%}
 				<link rel="stylesheet" href="{{ asset_url }}" />

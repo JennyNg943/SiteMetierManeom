@@ -22,9 +22,14 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 	function getCVThequeTrie($dept)
 	{
 		$qb = $this->createQueryBuilder('a');
-		$qb ->where('a.idSite = :id')
-			->setParameter('id', 15)
-			->orderBy('a.nom','ASC');
+		$qb ->select('a,count(annonce.id) AS HIDDEN nb')
+			->orderBy('a.nom','ASC')
+			->join('a.annonce','annonce')
+			->join('annonce.site','s')
+			->where('s.idSiteemploi = :site')
+			->setParameter('site', 15)
+			->groupBy('annonce.id')
+			->orderBy('nb','DESC');
 			
 		if($dept != null){
 			$qb->join('a.codePostal','v')

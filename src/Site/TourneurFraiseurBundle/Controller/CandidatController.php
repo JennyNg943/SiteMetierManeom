@@ -55,7 +55,7 @@ class CandidatController extends Controller
     {
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_CvTheque');
 		$form = $this->createForm(RegionType::class);
-		$candidat = $repository->findByIdSite(15);
+		$candidat = $repository->getCVThequeTrie(null);
 		$form->handleRequest($request);
 			if ($form->isSubmitted() && $form->isValid()) {
 				$dept = $form->get('idDepartement')->getData();

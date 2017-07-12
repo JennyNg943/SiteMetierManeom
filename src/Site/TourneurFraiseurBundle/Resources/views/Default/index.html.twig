@@ -4,20 +4,18 @@
 {% block body %}			
 
 		
-<div id="index-haut-droit" style="text-align: justify;font-weight: bold;margin-right:20px;width:728px;margin-bottom: 10%;">
+<div id="index-haut-droit" style="text-align: justify;font-weight: bold;margin-right:20px;width:728px;margin-bottom: 2%;">
 	
-	<h1>Tourneurs-Fraiseurs.com</h1>
-	<h3 style="color:white;font-style: italic;">Une autre approche du recrutement dans l'usinage </h3>
-	
-	Quelle que soit la spécialité recherchée ou proposée, Tourneurs-Fraiseurs.com met en relation des entreprises et des professionnels de l'usinage par enlèvement de copeaux ou abrasion.<br>
-	Tournage, fraisage, décolletage, brochage, forage, rectification, représentent ainsi le travail quotidien des milliers de profils présents dans notre CV-Théque ou de candidats potentiels visitant régulièrement notre site.<br><br> 
-	Au-delà des spécialités techniques, de nombreuses fonctions sont couvertes : certaines très  'terrain', telles que régleurs, opérateurs, conducteurs de machines automatisées ou programmeurs sur armoire CN, et d'autres plus généralistes ou transverses; telles que méthodes, gammes, programmation (CFAO) ou encadrement.<br><br>
-	Depuis septembre 2013, de nouvelles fonctions ont été ajoutées. Elles visent à pérenniser la relation entre les recruteurs et les candidats dès leur formation professionnelle. Vous trouverez ainsi un onglet formation très fortement enrichi d'offres de stages et autres opportunités.<br><br>
-	Nous avons également développé de nouvelles formules pour assister les entreprises dans leurs recherches de collaborateurs, et avons étendu notre offre aux agences d'intérim et cabinets RH qui peuvent ainsi s'appuyer sur nous pour performer leurs relations avec leurs clients habituels.<br><br>
-	N'hésitez pas à nous contacter : nous serons ravis d'échanger avec vous pour vous apporter le meilleur service.<br><br> 
-	L'équipe de Tourneurs-Fraiseurs.com.	<br/>
-	
-	
+	<h1>Le site emploi de l'usinage </h1>
+	Quelle que soit la spécialité recherchée ou proposée, Tourneurs-Fraiseurs.com met en relation des entreprises et des professionnels de l'usinage par enlèvement de copeaux ou abrasion.</br>
+	Tournage, fraisage, décolletage, brochage, forage, rectification, représentent ainsi le travail quotidien des milliers de profils présents dans notre CV-Thèque ou de candidats potentiels visitant régulièrement notre site.</br>
+	Au-delà des spécialités techniques, de nombreuses fonctions sont couvertes : certaines très 'terrain', telles que régleurs, opérateurs, conducteurs de machines automatisées ou programmeurs sur armoire CN, et d'autres plus généralistes ou transverses; telles que méthodes, gammes, programmation (CFAO) ou encadrement.</br></br>
+
+	Ce site est intégré dans le portail Recrutic.com, portail d'emploi spécialisé dans les métiers industriels en tension. Cette intégration permet une performance accrue de la mise en relation employeurs/candidats, grâce a une gestion fine des compétences et à un système  d'alerte très réactif.<br><br>
+	Tourneurs-Frauseurs.com, comme tous les sites de ce portail est entièrement gratuit. Bien entendu, si vous avez besoin de plus de CV, plus de visibilité ou plus de réactivité, nous vous proposons une option "premium" particulièrement compétitive. Vous pouvez cliquer ici pour en savoir plus.  	<br/></br>
+	Employeurs, candidats, recruteurs, inscrivez-vous (une inscription unique pour 16 sites) pour ne pas passer à côté des meilleures opportunités
+	<br><br>
+	L'équipe de Tourneurs-Fraiseurs.com.
 
 </div>
 
@@ -32,8 +30,10 @@
 				<div id="corps-droit-bloc1" style="width:240px;margin-left: -10px;">
 					{% for candidat in listecandidat %}
 						<ul>
-							<li>{{ candidat.nomCandidat|truncate(1) }} {{ candidat.prenomCandidat }}</li>
+							<li>{{ candidat.nomCandidat|truncate(1)|upper }} {{ candidat.prenomCandidat }}</li>
+							<li><b>{% for fonction in candidat.fonction %}{{ fonction.intitulefonction }}{% endfor %}</b></li>
 							<li>{{ candidat.datecreation|date('d/m/Y') }}</li>
+							
 						</ul>
 					{% endfor %}			
 				</div>
