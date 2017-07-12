@@ -23,7 +23,8 @@ class Sy_SiteType extends AbstractType
 				'choice_label'	=> 'intitulesiteemploi',
 				'placeholder' => '',
 				'label'			=> false
-			))->add('Valider le site',	SubmitType::class)
+			))
+			->add('Valider le site',	SubmitType::class)
 			
 			;
 		
