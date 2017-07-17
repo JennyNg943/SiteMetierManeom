@@ -131,14 +131,14 @@ class Sy_Annonce
 	/**
      * @var \DateTime
      *
-     * @ORM\Column(name="$dateSuspension", type="date", nullable=true)
+     * @ORM\Column(name="dateSuspension", type="date", nullable=true)
      */
     private $dateSuspension;
 	
 	/**
      * @var \DateTime
      *
-     * @ORM\Column(name="$dateMAJ", type="date", nullable=true)
+     * @ORM\Column(name="dateMAJ", type="date", nullable=true)
      */
     private $dateMAJ;
 	
