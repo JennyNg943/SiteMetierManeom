@@ -71,6 +71,14 @@ class Sy_Siteemploi
      */
 	private $annonce;
 	
+	/**
+     *
+     * @var integer
+     * 
+     * @ORM\OneToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Image", cascade={"persist"})
+     */
+	private $pub;
+	
     
 	
 	public function __toString() {
@@ -290,5 +298,29 @@ class Sy_Siteemploi
     public function getAnnonce()
     {
         return $this->annonce;
+    }
+
+    /**
+     * Set pub
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Image $pub
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setPub(\Site\TourneurFraiseurBundle\Entity\Image $pub = null)
+    {
+        $this->pub = $pub;
+
+        return $this;
+    }
+
+    /**
+     * Get pub
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Image
+     */
+    public function getPub()
+    {
+        return $this->pub;
     }
 }

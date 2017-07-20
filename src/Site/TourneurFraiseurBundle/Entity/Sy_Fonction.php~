@@ -37,7 +37,7 @@ class Sy_Fonction
     /**
      * @var integer
      *
-     * @ORM\Column(name="Id_SiteDistant", type="integer", nullable=false)
+     * @ORM\Column(name="Id_SiteDistant", type="integer", nullable=true)
      */
     private $idSitedistant;
 
@@ -52,5 +52,86 @@ class Sy_Fonction
 			return '';
 		}
 	}
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set intitulefonction
+     *
+     * @param string $intitulefonction
+     *
+     * @return Sy_Fonction
+     */
+    public function setIntitulefonction($intitulefonction)
+    {
+        $this->intitulefonction = $intitulefonction;
+
+        return $this;
+    }
+
+    /**
+     * Get intitulefonction
+     *
+     * @return string
+     */
+    public function getIntitulefonction()
+    {
+        return $this->intitulefonction;
+    }
+
+    /**
+     * Set idSitedistant
+     *
+     * @param integer $idSitedistant
+     *
+     * @return Sy_Fonction
+     */
+    public function setIdSitedistant($idSitedistant)
+    {
+        $this->idSitedistant = $idSitedistant;
+
+        return $this;
+    }
+
+    /**
+     * Get idSitedistant
+     *
+     * @return integer
+     */
+    public function getIdSitedistant()
+    {
+        return $this->idSitedistant;
+    }
+
+    /**
+     * Set idSiteEmploi
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi $idSiteEmploi
+     *
+     * @return Sy_Fonction
+     */
+    public function setIdSiteEmploi(\Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi $idSiteEmploi)
+    {
+        $this->idSiteEmploi = $idSiteEmploi;
+
+        return $this;
+    }
+
+    /**
+     * Get idSiteEmploi
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi
+     */
+    public function getIdSiteEmploi()
+    {
+        return $this->idSiteEmploi;
+    }
+}

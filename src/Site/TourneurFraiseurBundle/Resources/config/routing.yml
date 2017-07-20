@@ -90,3 +90,9 @@ mesCandidatures:
 infoUtiles:
     path:	/Info
     defaults: {_controller: SiteTourneurFraiseurBundle:Default:info}
+    
+#																		Admin
+
+admin_pub:
+    path:	/Admin/Pub
+    defaults: {_controller: SiteTourneurFraiseurBundle:Admin:pub}

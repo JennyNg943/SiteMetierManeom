@@ -78,9 +78,10 @@
 		
 			<div id="EspacePubHorizontal" style=" " >
 					<!--<script type="text/javascript" src="js/advertisement.js"></script>-->
-				{% image 'bundles/app/img/EspacePub/Logo_BACA_Recrutic.jpg' %}
-							<a href="/"><img src="{{ asset_url }}" alt="Le site emploi totalement dédié aux métiers de l'usinage"/></a>
-				{% endimage %}
+				
+				{{render(controller('SiteTourneurFraiseurBundle:Admin:AffichagePub'))}}
+				
+				
 			</div>
 			
 		

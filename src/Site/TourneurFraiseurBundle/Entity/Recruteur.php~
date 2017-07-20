@@ -2,6 +2,7 @@
 
 namespace Site\TourneurFraiseurBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="recruteur")
  * @ORM\Entity
  */
-class Recruteur
+class Recruteur 
 {
     /**
      * @ORM\Id
@@ -18,7 +19,7 @@ class Recruteur
      * @ORM\GeneratedValue(strategy="AUTO")
 	 * 
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
@@ -209,7 +210,6 @@ class Recruteur
      */
     private $receptionmailconfirmation = '1';
 
-
 	/**
      * Constructor
      */
@@ -219,15 +219,7 @@ class Recruteur
 		$this->datemaj = new \DateTime('now');
     }
 	
-    /**
-     * Get idRecruteur
-     *
-     * @return integer
-     */
-    public function getIdRecruteur()
-    {
-        return $this->idRecruteur;
-    }
+    
 
     /**
      * Set societe
@@ -897,29 +889,5 @@ class Recruteur
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set user
-     *
-     * @param integer $user
-     *
-     * @return Recruteur
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return integer
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

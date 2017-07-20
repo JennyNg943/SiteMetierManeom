@@ -29,6 +29,9 @@
 						<li><a href="{{ path('annonce_ajout')}}">Créer une nouvelle offre d'emploi</a></li>
 						<li><a href="{{ path('annonce_gestion')}}">Gérer les annonces existantes</a></li>
 						<!---<li><a href="{{ path('annonce_candidature')}}">Gérer les candidatures</a></li>-->
+						{% if app.user.type == "Admin" %}
+							<li><a href="{{ path('admin_pub')}}">Changer la banniere de pub</a></li>
+						{% endif %}
 					</ul>	
 			
 			</div>
@@ -49,5 +52,4 @@
 	{% endif %}
 		</div>
 	</div>	
-
-{% endblock %}
+		{% endblock %}

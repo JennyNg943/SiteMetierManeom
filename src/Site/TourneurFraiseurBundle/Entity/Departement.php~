@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Departement
  *
  * @ORM\Table(name="departement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\DepartementRepository")
  */
 class Departement
 {
@@ -192,9 +192,19 @@ class Departement
 	*/
 	public function __toString() {
 		try {
-			return (string) $this->num;
+			return (string) $this->num.' - '.$this->dept;
 		} catch (Exception $exception) {
 			return '';
 		}
 	}
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }

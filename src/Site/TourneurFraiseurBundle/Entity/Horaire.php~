@@ -73,4 +73,14 @@ class Horaire
 			return '';
 		}
 	}
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }

@@ -345,4 +345,966 @@ class Annonce
 	}
 
     
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titreannonce
+     *
+     * @param string $titreannonce
+     *
+     * @return Annonce
+     */
+    public function setTitreannonce($titreannonce)
+    {
+        $this->titreannonce = $titreannonce;
+
+        return $this;
+    }
+
+    /**
+     * Get titreannonce
+     *
+     * @return string
+     */
+    public function getTitreannonce()
+    {
+        return $this->titreannonce;
+    }
+
+    /**
+     * Set descriptifannonce
+     *
+     * @param string $descriptifannonce
+     *
+     * @return Annonce
+     */
+    public function setDescriptifannonce($descriptifannonce)
+    {
+        $this->descriptifannonce = $descriptifannonce;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptifannonce
+     *
+     * @return string
+     */
+    public function getDescriptifannonce()
+    {
+        return $this->descriptifannonce;
+    }
+
+    /**
+     * Set profilrecherche
+     *
+     * @param string $profilrecherche
+     *
+     * @return Annonce
+     */
+    public function setProfilrecherche($profilrecherche)
+    {
+        $this->profilrecherche = $profilrecherche;
+
+        return $this;
+    }
+
+    /**
+     * Get profilrecherche
+     *
+     * @return string
+     */
+    public function getProfilrecherche()
+    {
+        return $this->profilrecherche;
+    }
+
+    /**
+     * Set datedebut
+     *
+     * @param \DateTime $datedebut
+     *
+     * @return Annonce
+     */
+    public function setDatedebut($datedebut)
+    {
+        $this->datedebut = $datedebut;
+
+        return $this;
+    }
+
+    /**
+     * Get datedebut
+     *
+     * @return \DateTime
+     */
+    public function getDatedebut()
+    {
+        return $this->datedebut;
+    }
+
+    /**
+     * Set remuneration
+     *
+     * @param string $remuneration
+     *
+     * @return Annonce
+     */
+    public function setRemuneration($remuneration)
+    {
+        $this->remuneration = $remuneration;
+
+        return $this;
+    }
+
+    /**
+     * Get remuneration
+     *
+     * @return string
+     */
+    public function getRemuneration()
+    {
+        return $this->remuneration;
+    }
+
+    /**
+     * Set dureecontrat
+     *
+     * @param string $dureecontrat
+     *
+     * @return Annonce
+     */
+    public function setDureecontrat($dureecontrat)
+    {
+        $this->dureecontrat = $dureecontrat;
+
+        return $this;
+    }
+
+    /**
+     * Get dureecontrat
+     *
+     * @return string
+     */
+    public function getDureecontrat()
+    {
+        return $this->dureecontrat;
+    }
+
+    /**
+     * Set datecreation
+     *
+     * @param \DateTime $datecreation
+     *
+     * @return Annonce
+     */
+    public function setDatecreation($datecreation)
+    {
+        $this->datecreation = $datecreation;
+
+        return $this;
+    }
+
+    /**
+     * Get datecreation
+     *
+     * @return \DateTime
+     */
+    public function getDatecreation()
+    {
+        return $this->datecreation;
+    }
+
+    /**
+     * Set datepublication
+     *
+     * @param \DateTime $datepublication
+     *
+     * @return Annonce
+     */
+    public function setDatepublication($datepublication)
+    {
+        $this->datepublication = $datepublication;
+
+        return $this;
+    }
+
+    /**
+     * Get datepublication
+     *
+     * @return \DateTime
+     */
+    public function getDatepublication()
+    {
+        return $this->datepublication;
+    }
+
+    /**
+     * Set datefinpublication
+     *
+     * @param \DateTime $datefinpublication
+     *
+     * @return Annonce
+     */
+    public function setDatefinpublication($datefinpublication)
+    {
+        $this->datefinpublication = $datefinpublication;
+
+        return $this;
+    }
+
+    /**
+     * Get datefinpublication
+     *
+     * @return \DateTime
+     */
+    public function getDatefinpublication()
+    {
+        return $this->datefinpublication;
+    }
+
+    /**
+     * Set suspension
+     *
+     * @param integer $suspension
+     *
+     * @return Annonce
+     */
+    public function setSuspension($suspension)
+    {
+        $this->suspension = $suspension;
+
+        return $this;
+    }
+
+    /**
+     * Get suspension
+     *
+     * @return integer
+     */
+    public function getSuspension()
+    {
+        return $this->suspension;
+    }
+
+    /**
+     * Set dateSuspension
+     *
+     * @param \DateTime $dateSuspension
+     *
+     * @return Annonce
+     */
+    public function setDateSuspension($dateSuspension)
+    {
+        $this->dateSuspension = $dateSuspension;
+
+        return $this;
+    }
+
+    /**
+     * Get dateSuspension
+     *
+     * @return \DateTime
+     */
+    public function getDateSuspension()
+    {
+        return $this->dateSuspension;
+    }
+
+    /**
+     * Set dateMAJ
+     *
+     * @param \DateTime $dateMAJ
+     *
+     * @return Annonce
+     */
+    public function setDateMAJ($dateMAJ)
+    {
+        $this->dateMAJ = $dateMAJ;
+
+        return $this;
+    }
+
+    /**
+     * Get dateMAJ
+     *
+     * @return \DateTime
+     */
+    public function getDateMAJ()
+    {
+        return $this->dateMAJ;
+    }
+
+    /**
+     * Set grandevilleproche
+     *
+     * @param string $grandevilleproche
+     *
+     * @return Annonce
+     */
+    public function setGrandevilleproche($grandevilleproche)
+    {
+        $this->grandevilleproche = $grandevilleproche;
+
+        return $this;
+    }
+
+    /**
+     * Get grandevilleproche
+     *
+     * @return string
+     */
+    public function getGrandevilleproche()
+    {
+        return $this->grandevilleproche;
+    }
+
+    /**
+     * Set avantage
+     *
+     * @param string $avantage
+     *
+     * @return Annonce
+     */
+    public function setAvantage($avantage)
+    {
+        $this->avantage = $avantage;
+
+        return $this;
+    }
+
+    /**
+     * Get avantage
+     *
+     * @return string
+     */
+    public function getAvantage()
+    {
+        return $this->avantage;
+    }
+
+    /**
+     * Set nbheure
+     *
+     * @param string $nbheure
+     *
+     * @return Annonce
+     */
+    public function setNbheure($nbheure)
+    {
+        $this->nbheure = $nbheure;
+
+        return $this;
+    }
+
+    /**
+     * Get nbheure
+     *
+     * @return string
+     */
+    public function getNbheure()
+    {
+        return $this->nbheure;
+    }
+
+    /**
+     * Set nbvues
+     *
+     * @param integer $nbvues
+     *
+     * @return Annonce
+     */
+    public function setNbvues($nbvues)
+    {
+        $this->nbvues = $nbvues;
+
+        return $this;
+    }
+
+    /**
+     * Get nbvues
+     *
+     * @return integer
+     */
+    public function getNbvues()
+    {
+        return $this->nbvues;
+    }
+
+    /**
+     * Set datepublicationrss
+     *
+     * @param \DateTime $datepublicationrss
+     *
+     * @return Annonce
+     */
+    public function setDatepublicationrss($datepublicationrss)
+    {
+        $this->datepublicationrss = $datepublicationrss;
+
+        return $this;
+    }
+
+    /**
+     * Get datepublicationrss
+     *
+     * @return \DateTime
+     */
+    public function getDatepublicationrss()
+    {
+        return $this->datepublicationrss;
+    }
+
+    /**
+     * Set referencerecruteur
+     *
+     * @param string $referencerecruteur
+     *
+     * @return Annonce
+     */
+    public function setReferencerecruteur($referencerecruteur)
+    {
+        $this->referencerecruteur = $referencerecruteur;
+
+        return $this;
+    }
+
+    /**
+     * Get referencerecruteur
+     *
+     * @return string
+     */
+    public function getReferencerecruteur()
+    {
+        return $this->referencerecruteur;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param string $reference
+     *
+     * @return Annonce
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * Set descriptionemployeur
+     *
+     * @param string $descriptionemployeur
+     *
+     * @return Annonce
+     */
+    public function setDescriptionemployeur($descriptionemployeur)
+    {
+        $this->descriptionemployeur = $descriptionemployeur;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionemployeur
+     *
+     * @return string
+     */
+    public function getDescriptionemployeur()
+    {
+        return $this->descriptionemployeur;
+    }
+
+    /**
+     * Set idFormule
+     *
+     * @param integer $idFormule
+     *
+     * @return Annonce
+     */
+    public function setIdFormule($idFormule)
+    {
+        $this->idFormule = $idFormule;
+
+        return $this;
+    }
+
+    /**
+     * Get idFormule
+     *
+     * @return integer
+     */
+    public function getIdFormule()
+    {
+        return $this->idFormule;
+    }
+
+    /**
+     * Set flagindeed
+     *
+     * @param integer $flagindeed
+     *
+     * @return Annonce
+     */
+    public function setFlagindeed($flagindeed)
+    {
+        $this->flagindeed = $flagindeed;
+
+        return $this;
+    }
+
+    /**
+     * Get flagindeed
+     *
+     * @return integer
+     */
+    public function getFlagindeed()
+    {
+        return $this->flagindeed;
+    }
+
+    /**
+     * Set descriptionrecruteurprofil
+     *
+     * @param string $descriptionrecruteurprofil
+     *
+     * @return Annonce
+     */
+    public function setDescriptionrecruteurprofil($descriptionrecruteurprofil)
+    {
+        $this->descriptionrecruteurprofil = $descriptionrecruteurprofil;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionrecruteurprofil
+     *
+     * @return string
+     */
+    public function getDescriptionrecruteurprofil()
+    {
+        return $this->descriptionrecruteurprofil;
+    }
+
+    /**
+     * Set adressereponse
+     *
+     * @param string $adressereponse
+     *
+     * @return Annonce
+     */
+    public function setAdressereponse($adressereponse)
+    {
+        $this->adressereponse = $adressereponse;
+
+        return $this;
+    }
+
+    /**
+     * Get adressereponse
+     *
+     * @return string
+     */
+    public function getAdressereponse()
+    {
+        return $this->adressereponse;
+    }
+
+    /**
+     * Set deptlimitrophe
+     *
+     * @param string $deptlimitrophe
+     *
+     * @return Annonce
+     */
+    public function setDeptlimitrophe($deptlimitrophe)
+    {
+        $this->deptlimitrophe = $deptlimitrophe;
+
+        return $this;
+    }
+
+    /**
+     * Get deptlimitrophe
+     *
+     * @return string
+     */
+    public function getDeptlimitrophe()
+    {
+        return $this->deptlimitrophe;
+    }
+
+    /**
+     * Set flagpmejob
+     *
+     * @param boolean $flagpmejob
+     *
+     * @return Annonce
+     */
+    public function setFlagpmejob($flagpmejob)
+    {
+        $this->flagpmejob = $flagpmejob;
+
+        return $this;
+    }
+
+    /**
+     * Get flagpmejob
+     *
+     * @return boolean
+     */
+    public function getFlagpmejob()
+    {
+        return $this->flagpmejob;
+    }
+
+    /**
+     * Set texteindeed
+     *
+     * @param string $texteindeed
+     *
+     * @return Annonce
+     */
+    public function setTexteindeed($texteindeed)
+    {
+        $this->texteindeed = $texteindeed;
+
+        return $this;
+    }
+
+    /**
+     * Get texteindeed
+     *
+     * @return string
+     */
+    public function getTexteindeed()
+    {
+        return $this->texteindeed;
+    }
+
+    /**
+     * Set referencepoleemploi
+     *
+     * @param string $referencepoleemploi
+     *
+     * @return Annonce
+     */
+    public function setReferencepoleemploi($referencepoleemploi)
+    {
+        $this->referencepoleemploi = $referencepoleemploi;
+
+        return $this;
+    }
+
+    /**
+     * Get referencepoleemploi
+     *
+     * @return string
+     */
+    public function getReferencepoleemploi()
+    {
+        return $this->referencepoleemploi;
+    }
+
+    /**
+     * Set idRejetannonce
+     *
+     * @param integer $idRejetannonce
+     *
+     * @return Annonce
+     */
+    public function setIdRejetannonce($idRejetannonce)
+    {
+        $this->idRejetannonce = $idRejetannonce;
+
+        return $this;
+    }
+
+    /**
+     * Get idRejetannonce
+     *
+     * @return integer
+     */
+    public function getIdRejetannonce()
+    {
+        return $this->idRejetannonce;
+    }
+
+    /**
+     * Set premium
+     *
+     * @param integer $premium
+     *
+     * @return Annonce
+     */
+    public function setPremium($premium)
+    {
+        $this->premium = $premium;
+
+        return $this;
+    }
+
+    /**
+     * Get premium
+     *
+     * @return integer
+     */
+    public function getPremium()
+    {
+        return $this->premium;
+    }
+
+    /**
+     * Set new
+     *
+     * @param integer $new
+     *
+     * @return Annonce
+     */
+    public function setNew($new)
+    {
+        $this->New = $new;
+
+        return $this;
+    }
+
+    /**
+     * Get new
+     *
+     * @return integer
+     */
+    public function getNew()
+    {
+        return $this->New;
+    }
+
+    /**
+     * Set idTypecontrat
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Typecontrat $idTypecontrat
+     *
+     * @return Annonce
+     */
+    public function setIdTypecontrat(\Site\TourneurFraiseurBundle\Entity\Typecontrat $idTypecontrat = null)
+    {
+        $this->idTypecontrat = $idTypecontrat;
+
+        return $this;
+    }
+
+    /**
+     * Get idTypecontrat
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Typecontrat
+     */
+    public function getIdTypecontrat()
+    {
+        return $this->idTypecontrat;
+    }
+
+    /**
+     * Set idNiveauSouhaite
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Niveausouhaite $idNiveauSouhaite
+     *
+     * @return Annonce
+     */
+    public function setIdNiveauSouhaite(\Site\TourneurFraiseurBundle\Entity\Niveausouhaite $idNiveauSouhaite)
+    {
+        $this->idNiveauSouhaite = $idNiveauSouhaite;
+
+        return $this;
+    }
+
+    /**
+     * Get idNiveauSouhaite
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Niveausouhaite
+     */
+    public function getIdNiveauSouhaite()
+    {
+        return $this->idNiveauSouhaite;
+    }
+
+    /**
+     * Set idDepartement
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Departement $idDepartement
+     *
+     * @return Annonce
+     */
+    public function setIdDepartement(\Site\TourneurFraiseurBundle\Entity\Departement $idDepartement)
+    {
+        $this->idDepartement = $idDepartement;
+
+        return $this;
+    }
+
+    /**
+     * Get idDepartement
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Departement
+     */
+    public function getIdDepartement()
+    {
+        return $this->idDepartement;
+    }
+
+    /**
+     * Set idRecruteur
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Recruteur $idRecruteur
+     *
+     * @return Annonce
+     */
+    public function setIdRecruteur(\Site\TourneurFraiseurBundle\Entity\Recruteur $idRecruteur)
+    {
+        $this->idRecruteur = $idRecruteur;
+
+        return $this;
+    }
+
+    /**
+     * Get idRecruteur
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Recruteur
+     */
+    public function getIdRecruteur()
+    {
+        return $this->idRecruteur;
+    }
+
+    /**
+     * Set idHoraire
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Horaire $idHoraire
+     *
+     * @return Annonce
+     */
+    public function setIdHoraire(\Site\TourneurFraiseurBundle\Entity\Horaire $idHoraire = null)
+    {
+        $this->idHoraire = $idHoraire;
+
+        return $this;
+    }
+
+    /**
+     * Get idHoraire
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Horaire
+     */
+    public function getIdHoraire()
+    {
+        return $this->idHoraire;
+    }
+
+    /**
+     * Remove site
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $site
+     */
+    public function removeSite(\Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $site)
+    {
+        $this->site->removeElement($site);
+    }
+
+    /**
+     * Get site
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+
+    /**
+     * Add fonction
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $fonction
+     *
+     * @return Annonce
+     */
+    public function addFonction(\Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $fonction)
+    {
+        $this->fonction[] = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Remove fonction
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $fonction
+     */
+    public function removeFonction(\Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $fonction)
+    {
+        $this->fonction->removeElement($fonction);
+    }
+
+    /**
+     * Get fonction
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFonction()
+    {
+        return $this->fonction;
+    }
+
+    /**
+     * Add candidature
+     *
+     * @param \Site\UserBundle\Entity\Sy_Candidature $candidature
+     *
+     * @return Annonce
+     */
+    public function addCandidature(\Site\UserBundle\Entity\Sy_Candidature $candidature)
+    {
+        $this->candidature[] = $candidature;
+
+        return $this;
+    }
+
+    /**
+     * Remove candidature
+     *
+     * @param \Site\UserBundle\Entity\Sy_Candidature $candidature
+     */
+    public function removeCandidature(\Site\UserBundle\Entity\Sy_Candidature $candidature)
+    {
+        $this->candidature->removeElement($candidature);
+    }
+
+    /**
+     * Get candidature
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCandidature()
+    {
+        return $this->candidature;
+    }
 }

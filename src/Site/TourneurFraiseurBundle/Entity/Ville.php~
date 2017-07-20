@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ville
  *
  * @ORM\Table(name="Ville")
- * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\VilleRepository")
+ * @ORM\Entity
  */
 class Ville
 {
@@ -36,7 +36,7 @@ class Ville
 	/**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Departement")
+     * @ORM\ManyToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Departement")
      */
     private $departement;
 
@@ -109,11 +109,11 @@ class Ville
     /**
      * Set departement
      *
-     * @param \OC\PlatformBundle\Entity\Departement $departement
+     * @param \Site\TourneurFraiseurBundle\Entity\Departement $departement
      *
      * @return Ville
      */
-    public function setDepartement(\OC\PlatformBundle\Entity\Departement $departement = null)
+    public function setDepartement(\Site\TourneurFraiseurBundle\Entity\Departement $departement = null)
     {
         $this->departement = $departement;
 
@@ -123,7 +123,7 @@ class Ville
     /**
      * Get departement
      *
-     * @return \OC\PlatformBundle\Entity\Departement
+     * @return \Site\TourneurFraiseurBundle\Entity\Departement
      */
     public function getDepartement()
     {

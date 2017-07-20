@@ -85,4 +85,202 @@ class Sy_CvTheque
     }
 
     
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Sy_CvTheque
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Sy_CvTheque
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param string $mail
+     *
+     * @return Sy_CvTheque
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set codePostal
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Ville $codePostal
+     *
+     * @return Sy_CvTheque
+     */
+    public function setCodePostal(\Site\TourneurFraiseurBundle\Entity\Ville $codePostal)
+    {
+        $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    /**
+     * Get codePostal
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Ville
+     */
+    public function getCodePostal()
+    {
+        return $this->codePostal;
+    }
+
+    /**
+     * Set idSite
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi $idSite
+     *
+     * @return Sy_CvTheque
+     */
+    public function setIdSite(\Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi $idSite)
+    {
+        $this->idSite = $idSite;
+
+        return $this;
+    }
+
+    /**
+     * Get idSite
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Sy_Siteemploi
+     */
+    public function getIdSite()
+    {
+        return $this->idSite;
+    }
+
+    /**
+     * Add annonce
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce $annonce
+     *
+     * @return Sy_CvTheque
+     */
+    public function addAnnonce(\Site\TourneurFraiseurBundle\Entity\Annonce $annonce)
+    {
+        $this->annonce[] = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonce
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce $annonce
+     */
+    public function removeAnnonce(\Site\TourneurFraiseurBundle\Entity\Annonce $annonce)
+    {
+        $this->annonce->removeElement($annonce);
+    }
+
+    /**
+     * Get annonce
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnnonce()
+    {
+        return $this->annonce;
+    }
+
+    /**
+     * Add fonction
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction
+     *
+     * @return Sy_CvTheque
+     */
+    public function addFonction(\Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction)
+    {
+        $this->fonction[] = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Remove fonction
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction
+     */
+    public function removeFonction(\Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction)
+    {
+        $this->fonction->removeElement($fonction);
+    }
+
+    /**
+     * Get fonction
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFonction()
+    {
+        return $this->fonction;
+    }
 }

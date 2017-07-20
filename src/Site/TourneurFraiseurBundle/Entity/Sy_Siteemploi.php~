@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Sy_Siteemploi
  *
- * @ORM\Table(name="Sy_Siteemploi")
+ * @ORM\Table(name="Sy_siteemploi")
  * @ORM\Entity(repositoryClass="Site\TourneurFraiseurBundle\Repository\SiteRepository")
  */
 class Sy_Siteemploi
@@ -71,6 +71,14 @@ class Sy_Siteemploi
      */
 	private $annonce;
 	
+	/**
+     *
+     * @var integer
+     * 
+     * @ORM\OneToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Image", cascade={"persist"})
+     */
+	private $pub;
+	
     
 	
 	public function __toString() {
@@ -93,4 +101,226 @@ class Sy_Siteemploi
     }
 
     
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set intitulesiteemploi
+     *
+     * @param string $intitulesiteemploi
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setIntitulesiteemploi($intitulesiteemploi)
+    {
+        $this->intitulesiteemploi = $intitulesiteemploi;
+
+        return $this;
+    }
+
+    /**
+     * Get intitulesiteemploi
+     *
+     * @return string
+     */
+    public function getIntitulesiteemploi()
+    {
+        return $this->intitulesiteemploi;
+    }
+
+    /**
+     * Set urlsiteemploi
+     *
+     * @param string $urlsiteemploi
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setUrlsiteemploi($urlsiteemploi)
+    {
+        $this->urlsiteemploi = $urlsiteemploi;
+
+        return $this;
+    }
+
+    /**
+     * Get urlsiteemploi
+     *
+     * @return string
+     */
+    public function getUrlsiteemploi()
+    {
+        return $this->urlsiteemploi;
+    }
+
+    /**
+     * Set flagmetier
+     *
+     * @param boolean $flagmetier
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setFlagmetier($flagmetier)
+    {
+        $this->flagmetier = $flagmetier;
+
+        return $this;
+    }
+
+    /**
+     * Get flagmetier
+     *
+     * @return boolean
+     */
+    public function getFlagmetier()
+    {
+        return $this->flagmetier;
+    }
+
+    /**
+     * Set initiales
+     *
+     * @param string $initiales
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setInitiales($initiales)
+    {
+        $this->initiales = $initiales;
+
+        return $this;
+    }
+
+    /**
+     * Get initiales
+     *
+     * @return string
+     */
+    public function getInitiales()
+    {
+        return $this->initiales;
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param string $domaine
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setDomaine($domaine)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return string
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
+    }
+
+    /**
+     * Add fonction
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction
+     *
+     * @return Sy_Siteemploi
+     */
+    public function addFonction(\Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction)
+    {
+        $this->fonction[] = $fonction;
+
+        return $this;
+    }
+
+    /**
+     * Remove fonction
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction
+     */
+    public function removeFonction(\Site\TourneurFraiseurBundle\Entity\Sy_Fonction $fonction)
+    {
+        $this->fonction->removeElement($fonction);
+    }
+
+    /**
+     * Get fonction
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFonction()
+    {
+        return $this->fonction;
+    }
+
+    /**
+     * Add annonce
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $annonce
+     *
+     * @return Sy_Siteemploi
+     */
+    public function addAnnonce(\Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $annonce)
+    {
+        $this->annonce[] = $annonce;
+
+        return $this;
+    }
+
+    /**
+     * Remove annonce
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $annonce
+     */
+    public function removeAnnonce(\Site\TourneurFraiseurBundle\Entity\Annonce_Sy_Siteemploi $annonce)
+    {
+        $this->annonce->removeElement($annonce);
+    }
+
+    /**
+     * Get annonce
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnnonce()
+    {
+        return $this->annonce;
+    }
+
+    /**
+     * Set pub
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Image $pub
+     *
+     * @return Sy_Siteemploi
+     */
+    public function setPub(\Site\TourneurFraiseurBundle\Entity\Image $pub = null)
+    {
+        $this->pub = $pub;
+
+        return $this;
+    }
+
+    /**
+     * Get pub
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Image
+     */
+    public function getPub()
+    {
+        return $this->pub;
+    }
 }
