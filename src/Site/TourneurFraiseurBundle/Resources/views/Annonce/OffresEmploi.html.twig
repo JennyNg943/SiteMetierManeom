@@ -30,7 +30,7 @@
 					<div id="tableau-offre" style="margin-bottom:20px;width:650px;text-align:center;">
 						<div id="titre-tableau-offre" style="margin-bottom: 10px;">
 							<div id="tableau-date">
-								Recruteur
+								Publication
 							</div>
 							<div id="tableau-fonction">
 								Annonce
@@ -48,10 +48,12 @@
 
 								<div class="date" style='margin:0;padding:0;height:50px;'>
 									<div style='font-weight:normal;width:100px;margin:0;padding:0;overflow:auto;'>
-										{% if annonce.idRecruteur is not empty %}
-											{{ annonce.idRecruteur.Societe }}
+										{% if annonce.Premium == 1 %}
+											{% image 'bundles/app/img/Urgent.png' %}
+													<img src="{{ asset_url }}" alt="Premium" style="width: 70%;"/>
+											{% endimage %}
 										{% else %}
-											{{ annonce.idEmployeur.Societe }}
+											{{ annonce.datePublication|date('d/m/y') }}
 										{% endif %}
 									</div></div>
 
