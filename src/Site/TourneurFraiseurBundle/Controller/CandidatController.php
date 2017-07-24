@@ -46,8 +46,10 @@ class CandidatController extends Controller
 	public function CVthequeAction(Request $request)
     {
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_CvTheque');
+		
 		$form = $this->createForm(RegionType::class);
 		$candidat = $repository->getCVThequeTrie(null);
+		
 		$form->handleRequest($request);
 			if ($form->isSubmitted() && $form->isValid()) {
 				$dept = $form->get('idDepartement')->getData();
@@ -69,10 +71,12 @@ class CandidatController extends Controller
 	
 	public function ConsultationAction(Request $request,$id){
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_CvTheque');
+		$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_Siteemploi');
 		$candidat = $repository->find($id);
-		
+		$site = $repository2->find(15);
 		return $this->render('SiteTourneurFraiseurBundle:Candidat:Consultation.html.twig',array(
-			'candidat'	=> $candidat
+			'candidat'	=> $candidat,
+			'site'		=> $site
 			));
 	}
 	
