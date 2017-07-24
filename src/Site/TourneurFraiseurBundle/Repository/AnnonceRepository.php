@@ -22,6 +22,8 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 			->setParameter('nb',10)	
 			->andWhere('c.datepublication > :date')
 			->setParameter('date',new \DateTime('-2 month'))	
+			->andWhere('c.premium != :pre')
+			->setParameter('pre',1)		
 			->orderBy('c.datepublication','DESC')
 			->setMaxResults(5);
 		
