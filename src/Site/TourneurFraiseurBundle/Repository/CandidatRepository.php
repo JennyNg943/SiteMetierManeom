@@ -19,38 +19,25 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 		return $qb->getQuery()->getResult();
 	}
 	
-	function getCVThequeTrie($site,$dept)
+	function getCVThequeTrie($dept)
 	{
 		$qb = $this->createQueryBuilder('a');
 		$qb 
 			->orderBy('a.nom','ASC')
 			->join('a.annonce','annonce')
+			->join('annonce.site','s')
+			->join('s.idSiteemploi','site')
+			->where('site.id = :ss')	
+			->setParameter('ss', 15)	
 				;
 			
-			if($site != null && $dept != null){
-				$qb->join('annonce.site','s')
-					->join('s.idSiteemploi','site')
-					->where('site.id = :ss')	
-					->setParameter('ss', $site)
-					->join('a.codePostal','v')
+			if($dept != null){
+				$qb->join('a.codePostal','v')
 					->join('v.departement','d')
-					->AndWhere('d.id = :dept')
+					->where('d.id = :dept')
 					->setParameter('dept', $dept);
-			}else{
-				if($site != null){
-				$qb->join('annonce.site','s')
-					->join('s.idSiteemploi','site')
-					->where('site.id = :ss')	
-					->setParameter('ss', $site);
-				}
-
-				if($dept != null){
-					$qb->join('a.codePostal','v')
-						->join('v.departement','d')
-						->where('d.id = :dept')
-						->setParameter('dept', $dept);
-				}
 			}
+			
 		
 		return $qb
 				->getQuery()
