@@ -35,20 +35,19 @@ class DefaultController extends Controller
 	
 	public function contactAction(Request $request){
 		
-		
 		$form = $this->createForm(ContactType::class);
 		if ($request->isMethod('POST')) {
 			if ($form->handleRequest($request)->isValid()) {
+				$to = array('support@recrutic.com', 'm.lopez@maneom.com');
 				$message = \Swift_Message::newInstance()
 						->setSubject($form->get('Sujet')->getData())
 						->setFrom($form->get('Mail')->getData())
-						->setTo('a.bouteille@maneom.com')
+						->setTo($to)
 						->setBody($form->get('Message')->getData());
 					$this->get('mailer')->send($message);
 				return $this->render('SiteTourneurFraiseurBundle:Default:ContactOk.html.twig');	
 			}
 		}
-
 		return $this->render('SiteTourneurFraiseurBundle:Default:Contact.html.twig',array('form'=>$form->createView()));
 	}
 	

@@ -33,14 +33,6 @@ class CandidatController extends Controller
 				$em->persist($candidat);
 				$em->flush();
 				
-				$message = \Swift_Message::newInstance()
-					->setSubject('Nouveau CV posé depuis TOURNEUR FRAISEUR')
-					->setFrom($user->getEmail())
-					->setTo('a.bouteille@maneom.com')
-					->setBody('Un nouveau candidat vient de déposer un CV depuis TOURNEURFRAISEUR.')
-					->attach(Swift_Attachment::fromPath($fileName))	;
-				$this->get('mailer')->send($message);
-				
 				return $this->render('SiteTourneurFraiseurBundle:Default:ContactOk.html.twig');
 			}
 		}	
