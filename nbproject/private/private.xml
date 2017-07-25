@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/wamp64/www/SiteMetier/TourneurFraiseur/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Form/FormPubType.php</file>
+            <file>file:/C:/wamp64/www/SiteMetier/TourneurFraiseur/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/views/Default/Banniere.html.twig</file>
+            <file>file:/C:/wamp64/www/SiteMetier/TourneurFraiseur/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Resources/views/Admin/AffichagePub.html.twig</file>
+            <file>file:/C:/wamp64/www/SiteMetier/TourneurFraiseur/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Controller/AdminController.php</file>
+            <file>file:/C:/wamp64/www/SiteMetier/TourneurFraiseur/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Controller/CandidatController.php</file>
+            <file>file:/C:/wamp64/www/SiteMetier/TourneurFraiseur/SiteEmploiOriginal/src/Site/TourneurFraiseurBundle/Form/ContactType.php</file>
+        </group>
     </open-files>
 </project-private>

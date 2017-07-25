@@ -1,0 +1,24 @@
+
+<html>
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>{% block title %}Tourneur Fraiseur{% endblock %}</title>
+		{% image 'bundles/app/img/favicon.ico' %}
+			<link rel="icon" type="image/png" href="{{ asset_url }}" />
+		{% endimage %}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+  </head>
+
+			
+<body style="width: 50%;margin-left: 30%;">
+	<img src="../../uploads/img/{{site.pub.url}}" />
+	<div style="width: 70%;
+    padding: 5%;
+}
+">
+	{{ form(form) }}
+	</div>
+</body>

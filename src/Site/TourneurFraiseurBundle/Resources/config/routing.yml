@@ -96,3 +96,7 @@ infoUtiles:
 admin_pub:
     path:	/Admin/Pub
     defaults: {_controller: SiteTourneurFraiseurBundle:Admin:pub}
+    
+formPub:
+    path:	/Admin/FormPub
+    defaults: {_controller: SiteTourneurFraiseurBundle:Admin:formPub}
