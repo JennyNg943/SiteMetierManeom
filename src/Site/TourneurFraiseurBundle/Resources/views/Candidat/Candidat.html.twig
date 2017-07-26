@@ -3,7 +3,7 @@
 	<tr><td>{% if candidat.annonce is not empty  %}
 			A répondu aux annonces : 
 		<ul>
-		{% for annonce in candidat.annonce|slice(0, 5) %}
+		{% for annonce in candidat.annonce %}
 			{% for s in annonce.site %}
 				{% if s.idSiteemploi == site %}
 			<li><b>{{ annonce.TitreAnnonce}}</b> ayant comme compétence demandée <b>{% for fonction in annonce.fonction %}{{ fonction.idFonction }} {% endfor %}</b> dans le <b>{{ annonce.idDepartement }}</b>
