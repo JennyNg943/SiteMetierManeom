@@ -55,13 +55,6 @@ class Sy_Recruteur extends User
     /**
      * @var string
      *
-     * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
-     */
-    private $adresse;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="Cp", type="string", length=255, nullable=false)
      */
     private $cp;

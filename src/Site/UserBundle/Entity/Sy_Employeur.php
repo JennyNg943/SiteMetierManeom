@@ -52,12 +52,7 @@ class Sy_Employeur extends User
      */
     private $prenomcontactcomm;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Adresse", type="string", length=255, nullable=true)
-     */
-    private $adresse;
+    
 
     /**
      * @var string
