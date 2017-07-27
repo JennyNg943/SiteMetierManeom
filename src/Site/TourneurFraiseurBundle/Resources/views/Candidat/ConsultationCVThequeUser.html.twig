@@ -1,0 +1,77 @@
+{% extends "SiteTourneurFraiseurBundle::layout.html.twig" %}
+
+{% block title %}
+	Mes candidatures
+{% endblock %}
+
+{% block body %}
+	
+	<div id="Text">
+		<div>
+			<div id="picto-envoyer-cv">
+				{% image 'bundles/app/img/picto_cv.png' %}
+					<img src="{{ asset_url }}" />
+				{% endimage %}
+				
+			</div>
+			<h1>CANDIDAT</h1>
+
+			{{ include ('SiteTourneurFraiseurBundle:Default:Banniere.html.twig') }}
+			<div id="TextCorps">
+				<table id='recapAnnonce'>
+					<tr><th><b>{{ candidat.nom|upper|truncate(1) }} {{ candidat.prenom }}</b></th></tr>
+					<tr><td>{% if candidat.annonce is not empty  %}
+							A répondu aux annonces : 
+						<ul>
+						{% for annonce in candidat.annonce %}	
+							{% if domaine != null %}
+								{% for site in annonce.site %}
+									{% if site.idFonction == domaine %}
+								<li><b>{{ annonce.TitreAnnonce}}</b> ayant comme compétence demandée <b>
+										{% for fonction in annonce.fonction %}{{ fonction.idFonction }}, {% endfor %}
+									</b> dans le <b>{{ annonce.idDepartement }}</b>
+									{% endif %}
+								{% endfor %}
+							{% else %}
+								<li><b>{{ annonce.TitreAnnonce}}</b> ayant comme compétence demandée <b>
+										{% for fonction in annonce.fonction %}{{ fonction.idFonction }}, {% endfor %}
+									</b> dans le <b>{{ annonce.idDepartement }}</b>
+							{% endif %}
+						{% endfor %}
+						</ul>
+					{% else %}
+						Possède les compétences suivantes :
+						<ul>
+							{% for fonction in candidat.fonction %}
+								<li><b>{{ fonction.intitulefonction }}</b></li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+					</td></tr>
+				</table>
+					
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						{% if app.user.type == "Admin" %}
+							<a href="{{ path('contactCandidat', {'id':candidat.id})}}">
+							{% image 'bundles/app/img/Mail.png' %}
+								<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg" style="width: 10%;"/>
+							{% endimage %}</a>
+						{% endif %}
+						{% if app.user.premium is not empty %}
+							<a href="{{ path('contactCandidat', {'id':candidat.id})}}">
+							{% image 'bundles/app/img/Mail.png' %}
+								<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg" style="width: 10%;"/>
+							{% endimage %}</a>
+						{% endif %}	
+					{% else %}	
+						<a href="#" onclick="return alert('Il faut déposer une annonce premium pour avoir accès à ce service.')">
+							{% image 'bundles/app/img/Mail.png' %}
+							<img src="{{ asset_url }}" alt="Recrutic" id="CVThequeImg" style="width: 10%;"/>
+							{% endimage %}</a>		
+
+					{% endif %}	
+			</div>
+		</div>
+	</div>
+				
+{% endblock %}

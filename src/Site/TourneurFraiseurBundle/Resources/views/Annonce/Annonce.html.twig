@@ -17,7 +17,14 @@
 			{% else %}
 				<a href="{{ path('annonce_desus_user',{'id':annonce.id})}}" id='BoutonAnnonce'>Ne plus suspendre cette annonce</a>
 			{% endif %}
-				<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
+			{% if annonce.premium is not empty %}
+				{% if app.user.premium is not empty or app.user.type == "Admin"%}
+					<a href="{{ path('CVthequeUser',{'id':annonce.id})}}" id='BoutonAnnonce'>Voir la CvTheque</a>
+				{% endif %}
+			{% endif %}
+			
+			<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red;display: inline-block;" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
+			
 		{% endif %}		
 	{% else %}	
 		{% if  app.user.id == annonce.idEmployeur.id %}
@@ -27,7 +34,12 @@
 			{% else %}
 				<a href="{{ path('annonce_desus_user',{'id':annonce.id})}}" id='BoutonAnnonce'>Ne plus suspendre cette annonce</a>
 			{% endif %}
-				<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a>
+			<a href="{{ path('annonce_delete',{'id':annonce.id})}}" style="background-color: red" id='BoutonAnnonce' onclick="return confirm('Voulez vous vraiment supprimer cette annonce?')">Supprimer cette annonce</a></br>
+			{% if annonce.premium is not empty %}
+				{% if app.user.premium is not empty %}
+					<a href="{{ path('CVthequeUser',{'id':annonce.id})}}" id='BoutonAnnonce'>Voir la CvTheque</a>
+				{% endif %}
+			{% endif %}
 		{% endif %}
 	{% endif %}
 	{% if app.user.type == "Candidat" %}

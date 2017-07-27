@@ -68,6 +68,13 @@ class Sy_CvTheque
 	/**
      * @var integer
      *
+     * @ORM\ManyToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Annonce")
+     */
+    private $sy_annonce;
+	
+	/**
+     * @var integer
+     *
      * @ORM\ManyToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Fonction")
      */
 	private $fonction;
@@ -282,5 +289,39 @@ class Sy_CvTheque
     public function getFonction()
     {
         return $this->fonction;
+    }
+	
+	/**
+     * Add syAnnonce
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Annonce $syAnnonce
+     *
+     * @return Sy_CvTheque
+     */
+    public function addSyAnnonce(\Site\TourneurFraiseurBundle\Entity\Sy_Annonce $syAnnonce)
+    {
+        $this->sy_annonce[] = $syAnnonce;
+
+        return $this;
+    }
+
+    /**
+     * Remove syAnnonce
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Annonce $syAnnonce
+     */
+    public function removeSyAnnonce(\Site\TourneurFraiseurBundle\Entity\Sy_Annonce $syAnnonce)
+    {
+        $this->sy_annonce->removeElement($syAnnonce);
+    }
+
+    /**
+     * Get syAnnonce
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSyAnnonce()
+    {
+        return $this->sy_annonce;
     }
 }

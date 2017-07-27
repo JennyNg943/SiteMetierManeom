@@ -69,6 +69,10 @@ cvtheque:
     path:	 /User/Cvtheque
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cvtheque}
 
+CVthequeUser:
+    path:     /CVTheque/{id}
+    defaults: { _controller: SiteTourneurFraiseurBundle:Candidat:CvthequeUser }
+
 candidat_cv:
     path:	 /User/Cv
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:Cv}
@@ -77,6 +81,10 @@ candidat_consultation:
     path:	 /User/Cvtheque/{id}
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:consultation}
     
+candidat_consultation_user:
+    path:	 /User/CvthequeS/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:consultationUser}
+    
 candidature:
     path:	/User/Candidature/{id}
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:candidature}
@@ -84,6 +92,10 @@ candidature:
 mesCandidatures:
     path:	/User/MesCandidatures
     defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:mesCandidatures}
+    
+contactCandidat:
+    path:	/User/Candidat/Contact/{id}
+    defaults: {_controller: SiteTourneurFraiseurBundle:Candidat:contact}
     
 #																		InfosUtiles
 

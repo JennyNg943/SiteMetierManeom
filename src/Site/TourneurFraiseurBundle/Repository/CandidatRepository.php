@@ -12,9 +12,15 @@ namespace Site\TourneurFraiseurBundle\Repository;
 class CandidatRepository extends \Doctrine\ORM\EntityRepository
 {
 	function getDernierCandidat(){
-		$qb=$this->createQueryBuilder('c');
-		$qb->orderBy('c.datecreation','DESC')
+		$qb=$this->createQueryBuilder('a');
+		$qb->orderBy('a.id','DESC')
+			->join('a.Sy_annonce','annonce')
+			->join('annonce.site','s')
+			->join('s.idSiteemploi','site')
+			->where('site.id = :ss')	
+			->setParameter('ss', 15)	
 			->setMaxResults(5);
+			
 		
 		return $qb->getQuery()->getResult();
 	}
@@ -58,6 +64,19 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 		return $qb
 				->getQuery()
 				->getResult();
+	}
+	
+	function getCVThequeByFonction($id){
+		$qb = $this->createQueryBuilder('c');
+		$qb->orderBy('c.nom','ASC')
+			->join('c.annonce','a')
+			->join('a.site','s')
+			->where('s.idFonction = :id')
+			->setParameter('id', $id);
+		
+		return $qb
+				->getQuery()->getResult();
+				
 	}
 	
 }

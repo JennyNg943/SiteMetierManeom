@@ -301,6 +301,13 @@ class Sy_Annonce
 	/**
      * @var integer
      *
+     * @ORM\ManyToMany(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_CvTheque")
+     */
+	private $candidatContact;
+	
+	/**
+     * @var integer
+     *
      * @ORM\Column(name="CodePostal", type="integer", nullable=true)
      */
 	private $codePostal;
@@ -1367,5 +1374,39 @@ class Sy_Annonce
     public function getCandidature()
     {
         return $this->candidature;
+    }
+	
+	/**
+     * Add candidatContact
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_CvTheque $candidatContact
+     *
+     * @return Sy_Annonce
+     */
+    public function addCandidatContact(\Site\TourneurFraiseurBundle\Entity\Sy_CvTheque $candidatContact)
+    {
+        $this->candidatContact[] = $candidatContact;
+
+        return $this;
+    }
+
+    /**
+     * Remove candidatContact
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_CvTheque $candidatContact
+     */
+    public function removeCandidatContact(\Site\TourneurFraiseurBundle\Entity\Sy_CvTheque $candidatContact)
+    {
+        $this->candidatContact->removeElement($candidatContact);
+    }
+
+    /**
+     * Get candidatContact
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCandidatContact()
+    {
+        return $this->candidatContact;
     }
 }

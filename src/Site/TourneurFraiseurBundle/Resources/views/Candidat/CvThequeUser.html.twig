@@ -15,27 +15,37 @@
 			<h1>CVTheque </h1>
 			<div style="width:620px;padding:5px 10px;height:50px;margin-bottom: 20px;border:1px solid #cccccc;box-shadow: 0 0 15px #3b3a3a;float:left;text-align: center;" id="conteneur-contenu-contact">
 				<div id="formRecherche" style="witdh:650px;">
-					{{ form_start(form)}}		
-						<div name="Region" id="Region" style="margin:13px 40px 0 120px;display: block;float:left;">
-							{{ form_row(form.idDepartement)}}		
-						</div>
-						<div style="margin:10px 0;height:25px;display: block;float:left;">
-							{{ form_row(form.Save)}}	
-						</div>			
+								
 				</div>
 			</div>
 				<table id='Cvtheque'>
 					
 						<tr><th>Nom</th><th>Prenom</th><th>Ville</th><th>Contacter</th></tr>
 					{% for candidat in pagination %}
-							<tr><td>{{candidat.nom|truncate(1)}}</td><td>{{candidat.prenom}}</td><td>{{candidat.codePostal}}</td><td id="CvThequeInteraction"><a href="{{ path('candidat_consultation',{'id':candidat.id})}}">
+							<tr><td>{{candidat.nom|truncate(1)}}</td><td>{{candidat.prenom}}</td><td>{{candidat.codePostal}}</td><td id="CvThequeInteraction"><a href="{{ path('candidat_consultation_user',{'id':candidat.id})}}">
 					{% image 'bundles/app/img/voir.png' %}
 						<img src="{{ asset_url }}" alt="Voir" id="CVThequeImg"/>
 						{% endimage %}</a>
-				<a href="#" onclick="return alert('Il faut déposer une annonce premium pour avoir accès à ce service.')">
-					{% image 'bundles/app/img/Mail.png' %}
-						<img src="{{ asset_url }}" alt="Recrutic" id="CVThequeImg"/>
-						{% endimage %}</a>
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						{% if app.user.type == "Admin" %}
+							<a href="{{ path('contactCandidat', {'id':candidat.id})}}">
+							{% image 'bundles/app/img/Mail.png' %}
+								<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg"/>
+							{% endimage %}</a>
+						{% endif %}
+						{% if app.user.premium is not empty %}
+							<a href="{{ path('contactCandidat', {'id':candidat.id})}}">
+							{% image 'bundles/app/img/Mail.png' %}
+								<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg"/>
+							{% endimage %}</a>
+						{% endif %}	
+					{% else %}	
+						<a href="#" onclick="return alert('Il faut déposer une annonce premium pour avoir accès à ce service.')">
+							{% image 'bundles/app/img/Mail.png' %}
+							<img src="{{ asset_url }}" alt="Recrutic" id="CVThequeImg"/>
+							{% endimage %}</a>		
+
+					{% endif %}		
 					</td></tr>
 					{% endfor %}
 				</table>

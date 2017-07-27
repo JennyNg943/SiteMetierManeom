@@ -123,7 +123,7 @@ class Sy_Recruteur extends User
 	/**
      * @var integer
      * 
-     * @ORM\OneToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Premium",cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Site\TourneurFraiseurBundle\Entity\Sy_Premium")
      */
 	private $premium;
 	
@@ -830,5 +830,29 @@ class Sy_Recruteur extends User
     public function getType()
     {
         return $this->type;
+    }
+	
+	/**
+     * Set premium
+     *
+     * @param \Site\TourneurFraiseurBundle\Entity\Sy_Premium $premium
+     *
+     * @return Sy_Recruteur
+     */
+    public function setPremium(\Site\TourneurFraiseurBundle\Entity\Sy_Premium $premium = null)
+    {
+        $this->premium = $premium;
+
+        return $this;
+    }
+
+    /**
+     * Get premium
+     *
+     * @return \Site\TourneurFraiseurBundle\Entity\Sy_Premium
+     */
+    public function getPremium()
+    {
+        return $this->premium;
     }
 }

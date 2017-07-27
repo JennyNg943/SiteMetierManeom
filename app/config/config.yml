@@ -82,7 +82,7 @@ fos_user:
         user_manager: pugx_user_manager             
                 
 assetic:
-    debug:          '%kernel.debug%'
+    debug:          false
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~     
