@@ -20,6 +20,7 @@ class FormPubType extends AbstractType
 			->add('Mail', \Symfony\Component\Form\Extension\Core\Type\EmailType::class)
 			->add('CodePostal', \Symfony\Component\Form\Extension\Core\Type\NumberType::class)
 			->add('Societe', TextType::class,array('required' => false,'label'=>'Société (facultatif)'))
+			->add('Remarque',	TextareaType::class,array('required'=>false))
 			->add('Confirmer', SubmitType::class)	
 				;
 				
