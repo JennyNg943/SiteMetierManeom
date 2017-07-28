@@ -21,6 +21,7 @@ class CandidatController extends Controller
 		$erreur="";
 		$user = $this->getUser();
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_Candidature');
+		$repository2 = $this->getDoctrine()->getManager()->getRepository('SiteUserBundle:Sy_CvTheque');
 		$candidat = $repository->find($user->getId());
 		$candidat->setMailCandidat($user->getEmail())->setCvcandidat(null);
 		$form = $this->createForm(CandidatureType::class, $candidat);
@@ -29,9 +30,11 @@ class CandidatController extends Controller
 				$file = $candidat->getCvcandidat();
 				$fileName = $user->getEmail().'.'.$file->guessExtension();
 				$file->move($this->getParameter('CV_directory'),$fileName);
-				
+				$cv = $repository2->findOneByMail($user->getEmail());
+				$cv->setUrl("http://tourneurs-fraiseurs.com/web/".$fileName);
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($candidat);
+				$em->persist($cv);
 				$em->flush();
 				$message = \Swift_Message::newInstance() 
 				->setSubject('Nouveau CV posé depuis TOURNEUR FRAISEUR') 
@@ -53,14 +56,13 @@ class CandidatController extends Controller
 	public function CVthequeAction(Request $request)
     {
 		$repository = $this->getDoctrine()->getManager()->getRepository('SiteTourneurFraiseurBundle:Sy_CvTheque');
-		
-		$form = $this->createForm(RegionType::class);
 		$candidat = $repository->getCVThequeTrie(null);
+		$form = $this->createForm(RegionType::class);
+		
 		
 		$form->handleRequest($request);
-			if ($form->isSubmitted() && $form->isValid()) {
+			if ($form->isSubmitted()) {
 				$dept = $form->get('idDepartement')->getData();
-				
 				$candidat = $repository->getCVThequeTrie($dept);
 				
 				
@@ -153,7 +155,7 @@ class CandidatController extends Controller
 					$file = $candidat->getCvcandidat();
 					$fileName = $user->getEmail().'.'.$file->guessExtension();
 					$file->move($this->getParameter('CV_directory'),$fileName);
-
+					$cv->setUrl("http://tourneurs-fraiseurs.com/web/".$fileName);
 					$em = $this->getDoctrine()->getManager();
 					$em->persist($candidat);
 					$em->persist($cv);
@@ -175,8 +177,8 @@ class CandidatController extends Controller
 							. "Ref site : ".$annonce->getId();
 					$message = \Swift_Message::newInstance()
 						->setSubject('Nouveau candidat TOURNEUR-FRAISEUR pour le poste '.$titre)
-						//->setFrom($user->getEmail())
-						->setTo($recruteur->getEmail())
+						->setFrom($user->getEmail())
+						//->setTo($recruteur->getEmail())
 						->setTo('a.bouteille@maneom.com')
 						->setBody($body)
 						->attach(Swift_Attachment::fromPath($fileName))	;
@@ -238,8 +240,8 @@ class CandidatController extends Controller
 				$message = \Swift_Message::newInstance()
 						->setSubject($form->get('Object')->getData())
 						->setFrom($user->getEmail())
-						//->setTo($candidat->getMail())
-						->setTo('a.bouteille@maneom.com')
+						->setTo($candidat->getMail())
+						//->setTo('a.bouteille@maneom.com')
 						->setBody($form->get('Message')->getData());
 					$this->get('mailer')->send($message);
 				return $this->render('SiteTourneurFraiseurBundle:Default:ContactOk.html.twig');

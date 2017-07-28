@@ -80,7 +80,12 @@ class Sy_CvTheque
 	private $fonction;
 	
 
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    private $url;
 
     
     /**
@@ -323,5 +328,27 @@ class Sy_CvTheque
     public function getSyAnnonce()
     {
         return $this->sy_annonce;
+    }
+	
+	/**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Image
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+        return $this;
+    }
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

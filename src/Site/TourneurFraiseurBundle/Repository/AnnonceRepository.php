@@ -55,8 +55,8 @@ class AnnonceRepository extends \Doctrine\ORM\EntityRepository
 			->andWhere('c.datepublication > :date')
 			->setParameter('date',new \DateTime('-2 month'))	
 			->orderBy('c.datepublication','DESC')
-			->andWhere('c.idDepartement = :id')
-			->setParameter('id',$id)	
+			->andWhere('c.idDepartement = :idDep')
+			->setParameter('idDep',$id)	
 			;
 		
 		return $qb->getQuery()->getResult();

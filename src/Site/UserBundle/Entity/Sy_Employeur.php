@@ -746,7 +746,7 @@ class Sy_Employeur extends User
      *
      * @return Sy_Recruteur
      */
-    public function setPremium(\OC\PlatformBundle\Entity\Sy_Premium $premium = null)
+    public function setPremium(\Site\TourneurFraiseurBundle\Entity\Sy_Premium $premium = null)
     {
         $this->premium = $premium;
 

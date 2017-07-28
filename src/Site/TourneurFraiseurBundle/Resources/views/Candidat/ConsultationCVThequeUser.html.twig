@@ -51,17 +51,17 @@
 				</table>
 					
 					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-						{% if app.user.type == "Admin" %}
+						{% if app.user.premium is not empty or app.user.type == "Admin"%}
 							<a href="{{ path('contactCandidat', {'id':candidat.id})}}">
 							{% image 'bundles/app/img/Mail.png' %}
 								<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg" style="width: 10%;"/>
 							{% endimage %}</a>
-						{% endif %}
-						{% if app.user.premium is not empty %}
-							<a href="{{ path('contactCandidat', {'id':candidat.id})}}">
-							{% image 'bundles/app/img/Mail.png' %}
-								<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg" style="width: 10%;"/>
-							{% endimage %}</a>
+							{% if candidat.url is not empty %}
+								<a href="{{ candidat.url }}">
+								{% image 'bundles/app/img/Cvtheque.png' %}
+									<img src="{{ asset_url }}" alt="Mail" id="CVThequeImg" style="width: 15%;"/>
+								{% endimage %}</a>
+							{% endif %}	
 						{% endif %}	
 					{% else %}	
 						<a href="#" onclick="return alert('Il faut déposer une annonce premium pour avoir accès à ce service.')">

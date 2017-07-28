@@ -30,19 +30,20 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 		$qb = $this->createQueryBuilder('a');
 		$qb 
 			->orderBy('a.nom','ASC')
-			->join('a.annonce','annonce')
-			->join('annonce.site','s')
-			->join('s.idSiteemploi','site')
-			->where('site.id = :ss')	
+			->leftJoin('a.annonce','annonce')
+			->leftJoin('annonce.site','s')
+			->leftJoin('a.sy_annonce','sya')
+			->leftJoin('sya.site','sysite')
+			->where('s.idSiteemploi = :ss OR sysite.idSiteemploi = :ss')	
 			->setParameter('ss', 15)	
 				;
 			
 			if($dept != null){
-				$qb->join('a.codePostal','v')
-					->join('v.departement','d')
-					->where('d.id = :dept')
-					->setParameter('dept', $dept);
-			}
+					$qb->join('a.codePostal','v')
+						->join('v.departement','d')
+						->andWhere('d.id = :dept')
+						->setParameter('dept', $dept);
+				}
 			
 		
 		return $qb
@@ -69,9 +70,11 @@ class CandidatRepository extends \Doctrine\ORM\EntityRepository
 	function getCVThequeByFonction($id){
 		$qb = $this->createQueryBuilder('c');
 		$qb->orderBy('c.nom','ASC')
-			->join('c.annonce','a')
-			->join('a.site','s')
-			->where('s.idFonction = :id')
+			->leftJoin('c.annonce','a')
+			->leftJoin('a.site','s')
+			->leftJoin('c.sy_annonce', 'sya')	
+			->leftJoin('sya.site','ss')
+			->where('s.idFonction = :id OR ss.idFonction = :id')
 			->setParameter('id', $id);
 		
 		return $qb
