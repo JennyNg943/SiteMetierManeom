@@ -178,8 +178,8 @@ class CandidatController extends Controller
 					$message = \Swift_Message::newInstance()
 						->setSubject('Nouveau candidat TOURNEUR-FRAISEUR pour le poste '.$titre)
 						->setFrom($user->getEmail())
-						//->setTo($recruteur->getEmail())
-						->setTo('a.bouteille@maneom.com')
+						->setTo($recruteur->getEmail())
+						//->setTo('a.bouteille@maneom.com')
 						->setBody($body)
 						->attach(Swift_Attachment::fromPath($fileName))	;
 					$this->get('mailer')->send($message);
